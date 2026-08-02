@@ -1,86 +1,87 @@
 # CineSeat
 
-Paribu Cineverse için geliştirilmiş masaüstü uygulaması. Salon → film → seans hiyerarşisinde gezinmenizi sağlar, seçtiğiniz seansın koltuk planını anlık olarak çeker ve **kaç kişiyseniz o kadar yan yana, salonun en ideal konumundaki** koltukları önerir: *"I sırası, koltuk 7-8 · %100"*.
+Paribu Cineverse için geliştirilmiş gayriresmi masaüstü uygulaması. Uygulama; sinema, film ve seans seçtiğinizde o seansın koltuk planını anlık olarak okur. Ardından belirttiğiniz kişi sayısı kadar yan yana ve salonun en iyi konumunda bulunan koltukları size önerir:
 
-Uygulama sadece bilgi amaçlıdır (read-only). Üyelik girişi, ödeme veya rezervasyon adımları içermez. "Bilet al" butonuna tıkladığınızda işlem yapabilmeniz için sizi doğrudan sinemanın kendi web sitesine yönlendirir.
+> **I sırası, koltuk 7-8** · %100 uygunluk
+
+Uygulama üzerinden herhangi bir satın alma işlemi gerçekleştirilmez. Üyelik girişi gerektirmez, ödeme almaz ve koltuk ayırtmaz; yalnızca boş koltukların durumunu okur. "Bilet Al" düğmesi, işlemi tamamlamanız için sizi sitenin orijinal bilet alma sayfasına yönlendirir.
 
 ---
 
 ## Kurulum
 
-`BUILD-APP.bat` dosyasına **bir kez** çift tıklamanız yeterlidir. Bu dosya gerekli bağımlılıkları kurar ve `dist\CineSeat-Setup-3.0.0.exe` kurulum dosyasını oluşturur. Kurulumu tamamladıktan sonra uygulama, Başlat menüsünde ve masaüstünde normal bir program gibi yerini alır — bir daha `.bat` dosyasını çalıştırmanıza gerek kalmaz.
+1. [**Releases**](https://github.com/UtkuOzkutucu/CineSeat/releases) sayfasından `CineSeat-Setup-3.0.0.exe` dosyasını indirin.
+2. Dosyayı çalıştırıp kurulumu tamamlayın.
+3. Kurulum tamamlandıktan sonra uygulamaya Başlat menüsünden veya masaüstü kısayolundan erişebilirsiniz.
 
-Terminal üzerinden kurmak için:
+Uygulama, Windows 10 veya 11 (64-bit) işletim sistemlerinde çalışır. Ek bir yazılım kurmanıza gerek yoktur.
 
-```bash
-npm install && npm run dist
-```
+### "Windows bilgisayarınızı korudu" Uyarısı
 
-Geliştirme sürecinde uygulamayı doğrudan başlatmak için:
+Kurulum dosyasını ilk açtığınızda Windows mavi bir SmartScreen uyarı ekranı gösterebilir. Bunun sebebi uygulamanın zararlı bir yazılım olması değil, **dijital imza sertifikasına sahip olmamasıdır**. Bu sertifikalar yıllık belirli bir ücret gerektirdiği için bu tarz kişisel açık kaynaklı projelerde genellikle bulunmaz. Windows, imzasız tüm programlar için bu standart uyarıyı göstermektedir.
 
-```bash
-npm run app
-```
+Kuruluma devam etmek için: **Ek bilgi** → **Yine de çalıştır** seçeneklerine tıklayabilirsiniz.
 
-Sadece sunucuyu ayağa kaldırıp tarayıcı üzerinden görüntülemek için:
+---
 
-```bash
-npm start
-```
+## Nasıl Kullanılır?
 
-Gereksinimler oldukça basittir: Yalnızca Node.js 18 veya üzeri bir sürüm yeterlidir. Yerel derleme (native module), veritabanı sunucusu veya Docker gerektirmez.
+Üst menüden bilet alacağınız kişi sayısını seçtikten sonra aşağıdaki adımları izleyebilirsiniz:
+
+- **Sinema ve Film Seçimi:** Seçimi dilediğiniz sırayla yapabilirsiniz. Ortadaki **⇄** düğmesi, sinema ve film filtrelerinin yerini değiştirir. İsterseniz önce sinemayı seçip o sinemadaki filmleri listeleyebilir, isterseniz de önce filmi seçip o filmin gösterimde olduğu sinemaları görüntüleyebilirsiniz.
+- **Tarih Seçimi:** Bir tarih seçtiğinizde, o güne ait tüm seanslar taranır ve her seansın altında en uygun koltuk bilgisi gösterilir. Renk kodları şu şekildedir: Yeşil kenarlık iyi konumdaki koltukları, sarı kenarlık orta konumdaki koltukları, gri kenarlık ise "yan yana boş yer olmadığını" ifade eder.
+- **Gece Seansları:** **+1 gün** rozetine sahip olan seanslar gece yarısından sonra başlamaktadır; bu nedenle takvim bazında aslında bir sonraki güne aittir. Bu seanslara tıkladığınızda bilgilendirici bir uyarı mesajı ile karşılaşırsınız.
+- **Koltuk Planı:** İlgili seansa tıkladığınızda koltuk planı açılır ve sistem tarafından size önerilen koltuklar altın rengiyle vurgulanır.
+
+İlgilendiğiniz bir seansı **Takibe Al** seçeneği ile **Takip** sekmesine ekleyebilirsiniz. Bu sayede o seanstaki boş koltuk sayısı arka planda otomatik olarak güncellenir.
 
 ---
 
 ## Nasıl Çalışır?
 
-Uygulama, doğrudan sitenin kendi biletleme sayfasındaki API uç noktalarını (endpoint) kullanır. Her bir panel tek bir API isteğiyle dolar ve yanıt süreleri genellikle 100 ms'nin altındadır. Bu nedenle arka planda sürekli tarama yapan bir web kazıyıcı (crawler) veya yerel bir veritabanı **yoktur** — ekranda gördüğünüz her veri anlıktır.
+Uygulama, resmi sitenin bilet sayfasının arka planda kullandığı API uç noktalarından (endpoints) faydalanır. Uygulama üzerindeki her panel tek bir API isteği yapar ve bu isteklerin her biri genellikle 100 milisaniyenin altında sonuçlanır. Bu sayede arka planda sürekli veri toplayan bir servis veya yerel bir veritabanı bulunmaz; ekranda gördüğünüz tüm veriler o an canlı olarak sunucudan çekilir.
 
-| Endpoint | Döndürdüğü Veri |
+| Uç Nokta (Endpoint) | Dönen Veri |
 |---|---|
-| `POST /Cinema/GetCinemaListsByFilter` | 77 adet salon: `VistaCinemaId`, şehir, teknolojiler, konum, mesafe |
-| `POST /Film/GetAllowedSalesFilmsByFilter` | Vizyondaki filmler |
-| `POST /Film/GetFilmSessionDatesView` | İlgili film ve salon için bilet satışına açık tarihler |
-| `POST /Film/GetFilmSessionsView` | Sitenin kendi gruplandırmasına sadık kalınarak listelenen seanslar |
+| `POST /Cinema/GetCinemaListsByFilter` | 77 sinema: Kod, şehir, salon teknolojileri ve konum |
+| `POST /Film/GetAllowedSalesFilmsByFilter` | Vizyonda bileti satışta olan filmler |
+| `POST /Film/GetFilmSessionDatesView` | Bilet satışına açık olan tarihler |
+| `POST /Film/GetFilmSessionsView` | Sitenin kendi gruplandırdığı şekilde seans saatleri |
 
-Sistem çift yönlü çalışır: `CinemaIds` gönderirseniz o salonun filmlerini, `ScheduledFilmIds` gönderirseniz o filmi oynatan salonları listeler. Paneller arasındaki **⇅** butonunun temel işlevi budur.
+Bu uç noktalar çift yönlü çalışır: İstek parametresi olarak sinema kimliği (ID) gönderirseniz o sinemadaki filmleri, film kimliği gönderirseniz o filmin gösterildiği sinemaları döndürür. Arayüzdeki **⇄** düğmesi temelde bu çalışma mantığına dayanır.
 
-### Koltuk Planının Çekilmesi (4 Adım)
+### Hız ve Optimizasyon
 
-Sistemdeki en maliyetli işlem budur, çünkü sunucu tarafında geçici bir sepet oluşturulmasını gerektirir.
+API istekleri iki farklı işlem kuyruğuna ayrılır: Kullanıcı arayüzünde aktif olarak beklerken çalışanlar (aynı anda maksimum 6 istek) ve takip listesini güncelleyen arka plan görevleri (aralarında 1,2 saniye bekleme süresi olan, aynı anda tek istek).
 
-1. `GET /biletleme/~step~ticket~code~{kod}~session~{id}` → `UserSessionId` ve bilet tiplerini alır.
-2. `POST /Ticketing/AddTicketWithConcession` → `{"Result":0}` döner.
-3. `POST /Ticketing/BookingSeat` → Koltukları içeren `<table id="seatContainer">` yapısını getirir.
+Seçili bir sinema, film ve tarih kombinasyonu için **tüm** seanslar taranır, herhangi bir sayı sınırı uygulanmaz. Yapılan ölçümlere göre; 23 adet seansın taranması yaklaşık **6-8 saniye** sürerken, veriler önbellekte (cache) taze ise bu süre yarım saniyenin altına düşmektedir.
 
-**2. adım kesinlikle atlanamaz.** Atlandığı takdirde `BookingSeat` isteği HTTP 200 (Başarılı) dönse bile gövdesi yalnızca 8 bayt olur ve koltuk planı gelmez. Projenin ilk sürümünde koltuk planlarının boş görünmesinin temel nedeni buydu: `res.ok` true döndüğü için işlem başarılı sanılıp önbelleğe boş sonuç yazılıyor, arayüz de bunu "yer yok" olarak yansıtıyordu. Yeni yapıda boş dönen gövde doğrudan hata olarak kabul ediliyor.
-
-Performansı artırmak için `POST /Ticketing/AssignNewUserSessionId` endpoint'i kullanılır: 56 KB'lık sayfa yüklemek yerine 59 baytlık yeni bir token üretir ve bu token başka bir seans için de geçerli olur. Bilet tipleri bilinemiyorsa veya token reddedilirse sistem otomatik olarak tam sayfa akışına geri döner.
+Karşı sunucu tarafından API isteklerine sınırlandırma getirilirse (örn. `429` veya `403` durum kodları) veya üst üste üç istek başarısız olursa, uygulama koruma amacıyla kendini 15 dakikalığına bekleme moduna alır. Bu durum **Durum** sekmesinde kullanıcıya bildirilir ve süre dolduğunda uygulama normal hızına döner. Dilerseniz otomatik taramayı aynı sekmeden devre dışı bırakabilirsiniz; bu durumda koltuk bilgileri yalnızca ilgili seansa tıkladığınızda sorgulanır.
 
 ---
 
-## Hardcoded (Sabit) Değerler Yok
+## Dinamik Veri Yapısı (Koda Gömülü Değer Bulunmaz)
 
-Uygulamada siteye ait hiçbir yapılandırma doğrudan koda gömülmemiştir. Farklı illerden alınan aşağıdaki bilet ve fiyat örnekleri, bunun sebebini net bir şekilde açıklıyor:
+Bilet kodları, fiyatlar ve koltuk kategorileri şehirden şehre değişiklik göstermektedir. Altı farklı ilde yapılan ölçüm sonuçları şöyledir:
 
 | Şehir | Bilet Kodları | Fiyatlar | Koltuk Kategorisi |
 |---|---|---|---|
-| Bolu | `0231` / `0235` | ₺295 / ₺270 | `0000000001` |
-| Çanakkale | `0247` / `0249` | ₺260 / ₺260 | `0000000001` |
-| Kocaeli | `0002` / `0006` | ₺355 / ₺330 | `0000000001` |
-| İstanbul Avrupa | `1250` / `1310` | ₺735 / ₺685 | `0000000010` |
-| İstanbul Anadolu | `1058` / `1098` | ₺795 / ₺750 | `0000000012` |
-| Ankara | `0002` / `0006` | ₺400 / ₺370 | `0000000001` |
+| Bolu | `0231` / `0235` | 295 ₺ / 270 ₺ | `0000000001` |
+| Çanakkale | `0247` / `0249` | 260 ₺ / 260 ₺ | `0000000001` |
+| Kocaeli | `0002` / `0006` | 355 ₺ / 330 ₺ | `0000000001` |
+| İstanbul Avrupa | `1250` / `1310` | 735 ₺ / 685 ₺ | `0000000010` |
+| İstanbul Anadolu | `1058` / `1098` | 795 ₺ / 750 ₺ | `0000000012` |
+| Ankara | `0002` / `0006` | 400 ₺ / 370 ₺ | `0000000001` |
 
-Görüldüğü üzere aynı `0002` kodu Kocaeli'de ₺355 iken Ankara'da ₺400 olabiliyor; yani fiyat bilgisi sadece bilet koduna bakılarak türetilemez. Ayrıca Gold Class salonları standart `0000000001` kategorisini kullanmaz. Bu yüzden tüm bu veriler her seans için anlık olarak yeniden okunur.
+Örneğin; aynı `0002` bilet kodu Kocaeli'de 355 ₺ iken Ankara'da 400 ₺ olarak fiyatlandırılmaktadır. Bu sebeple yalnızca bilet koduna bakarak fiyatı tahmin etmek mümkün değildir. Ayrıca, Gold Class salonları standart koltuk kategorilerinden farklı çalışmaktadır. Tüm bu nedenlerden ötürü, bilet fiyatları ve koltuk kategorileri gibi değişken değerler her seans için sunucudan anlık olarak okunur.
 
-Şehir eşleştirmeleri de tahmin üzerinden yürümez: Her salonun `SiteGroupId` değeri sitenin kendi şehir listesiyle eşleştirilir. Böylece 77 salonun tamamında şehir ve koordinat bilgisi kesin doğrulukla gelir.
+Aynı şekilde şehir bilgisi de tahmine dayalı değildir; her sinemanın grup kimliği (ID), doğrudan resmi sitenin şehir listesiyle eşleştirilir. Bu yöntem sayesinde 77 sinemanın tamamında şehir ve konum bilgileri hatasız olarak elde edilmektedir.
 
 ---
 
 ## Gece Seansları
 
-Bir salon 01:30 seansını 2 Ağustos listesinde gösterebilir, ancak o seans teknik olarak 3 Ağustos'a aittir. Site altyapısı bu durumu kendisi şu şekilde işaretler:
+Sinema sistemleri genellikle gece 01:30 seansını örneğin 2 Ağustos tarihi altında listeler; ancak bu seans takvim bazında aslında 3 Ağustos'a aittir. Resmi site bu durumu kendi verisinde özel olarak işaretlemektedir:
 
 ```html
 <div id="showtime-20260803013000"
@@ -89,81 +90,96 @@ Bir salon 01:30 seansını 2 Ağustos listesinde gösterebilir, ancak o seans te
 </div>
 ```
 
-HTML öğesinin kimliği (ID) gerçek tarihi, `data-warning` özelliği ise Türkçe açıklamayı barındırır. Uygulama bu durumu listede **+1 gün** rozetiyle gösterir. Seansa tıkladığınızda sitenin kendi metnini barındıran bir uyarı çıkar ve **Tamam** butonuna basmadan koltuk planı açılmaz.
+HTML öğesinin `id` değerinde gerçek tarih, `data-warning` niteliğinde ise sitenin kendi hazırladığı açıklama metni yer alır. Bu doğrultuda uygulama, ilgili seanslar için listede **+1 gün** rozeti gösterir. Seansa tıkladığınızda ise bu açıklamanın bulunduğu bir onay kutusu (uyarı) karşınıza çıkar ve **Tamam** butonuna basmadan koltuk planı görüntülenmez.
 
 ---
 
-## Hız ve İstek Limitleri (Rate Limiting)
+## Koltuk Seçimi Algoritması
 
-API istekleri iki farklı kulvarda yönetilir:
+Sinema salonlarının boyutları 7×9'dan 15×39'a kadar değişiklik göstermektedir; en küçük salon 55, en büyük salon ise 456 koltukludur. Salon kapasiteleri arasında yaklaşık sekiz katlık bir fark bulunduğundan, ideal koltuğu bulan sıralama algoritması salon boyutuna göre dinamik olarak ölçeklenmektedir:
 
-- **Etkileşimli Kulvar** (Kullanıcının beklediği anlık işlemler): Aynı anda 6 istek kapasitesi, istekler arası ~200 ms bekleme.
-- **Arka Plan Kulvarı** (Sadece takip listesinin yenilenmesi): Aynı anda 1 istek kapasitesi, istekler arası 1,2 sn bekleme.
+- **Derinlik Hesaplaması:** Derinlik (perdeye olan mesafe), yalnızca koltuk bulunan sıralar üzerinden hesaplanır. Hemen her salonda yer alan ara koridor boşlukları, site tarafından numaralandırmada atlandığı için hesaplamaya dahil edilmez.
+- **Kenar Koltuk Puanlaması:** Kenar koltuklara uygulanan eksi puan (ceza), sıranın toplam genişliğine göre orantısal olarak ayarlanır. Bu ceza değeri sabit olsaydı, örneğin 7 koltuklu dar bir sırada neredeyse tüm koltuklar "kenar" kabul edilerek haksız bir puanlama yapılırdı.
+- **Esnek İdeal Aralık:** Toplam sıra sayısının az olduğu küçük salonlarda, ideal izleme mesafesini kapsayan derinlik aralığı otomatik olarak genişletilir.
+- **Puan Normalizasyonu:** Farklı salonlara ait koltuk puanları birbirleriyle kıyaslanmadan önce kendi içlerinde 0 ile 100 arasına çekilerek normalleştirilir.
+- **Kategori Kontrolü:** Uygulama her zaman seçilen bilet kategorisine uygun koltukları önerir (örn. standart bir bilet türü seçiliyken Gold Class koltukları önerilmez).
 
-Bir film + salon + tarih kombinasyonu için **bütün** seanslar taranır ve herhangi bir üst sınır yoktur. Yapılan ölçümlerde 23 seansın taranması **6,1 saniye**, önbellek (cache) sıcakken ise sadece 0,4 saniye sürmüştür.
-
-**Emniyet Freni:** Hedef site `429` (Too Many Requests) veya `403` (Forbidden) hataları döndürürse ya da üst üste üç istek başarısız olursa, etkileşimli kulvar 15 dakikalığına yavaş kulvar hızına düşürülür. Bu durum Durum sekmesinde kullanıcıya bildirilir ve süre dolduğunda sistem kendiliğinden normal hızına döner.
-
-Otomatik tarama özelliği Durum sekmesinden kapatılabilir. Kapatıldığında, koltuk verileri sadece bir seansa tıklandığında çekilir.
-
----
-
-## Koltuk Seçim Algoritması
-
-Salon boyutları 7×9'dan 15×39'a kadar değişiklik gösterir (55 koltuktan 456 koltuğa kadar - yaklaşık 8 kat fark). Bu nedenle algoritma, dinamik olarak salon boyutuna göre ölçeklenir:
-
-- Derinlik hesabı yalnızca **koltuk bulunan** sıralar üzerinden yapılır (Her salonda `data-r` niteliğinin atladığı boş bir ara koridor sırası bulunur).
-- Kenar dezavantajı (penalty), ilgili sıranın toplam genişliğine göre hesaplanır. Aksi takdirde 7 koltuklu dar bir sırada her koltuk "kenar" olarak algılanabilirdi.
-- Sığ salonlarda koltuk dağılımını dengelemek için Gauss eğrisi genişletilir.
-- Farklı salonların skorları birbiriyle karşılaştırılmadan önce kendi içlerinde normalize edilir.
-- Yalnızca `data-allowed-cc` niteliğiyle eşleşen koltuklar öneri havuzuna alınır (Örneğin, Gold Class biletiyle standart koltuk seçilemez).
-
-Sıra 0, salonun **en arka** kısmını temsil eder. Harfler perdeye doğru yaklaştıkça küçülür (G→A, O→A, K→A mantığı sahada doğrulanmıştır).
+*Not: Site yapısı gereği salonun en arka sırası başlangıç noktası (0. indeks) olarak kabul edilir ve harflendirme perdeye doğru azalır.*
 
 ---
 
-## Proje Yapısı
+## Kaynaktan Derleme (Build)
 
-```text
-electron/main.js          Masaüstü penceresi; Express sunucusunu kendi içinde başlatır.
-src/config.js             Tek yapılandırma dosyası (yalnızca uygulamanın kendi politikaları).
-src/net/client.js         İki kulvarlı HTTP istemcisi (zaman aşımı, yeniden deneme, emniyet freni).
-src/net/cineverse.js      Dört temel katalog API'si + koltuk seçim akışı.
-src/parse/sessions.js     Seans verilerini ayrıştırır (teknoloji, format, gece seansı tespiti).
-src/parse/seatmap.js      #seatContainer yapısını ızgaraya (grid) dönüştürür.
-src/parse/ticket.js       Token ve bilet tiplerini ayrıştırır (satışta olmayanları filtreler).
-src/algo/seatDetection.js Salon boyutuna duyarlı koltuk sıralama algoritması.
-src/seats.js              Önbellek yönetimi, düşük maliyetli token üretimi, paralel tarama.
-src/store.js              Küçük boyutlu JSON veritabanı (favoriler, takip edilenler, ayarlar).
-src/api/routes.js         Uygulamanın HTTP arayüzü.
-public/                   Üç panelli kullanıcı arayüzü (frontend).
-tools/make-icon.js        build/icon.ico dosyasını üretir.
+`BUILD-APP.bat` dosyasına çift tıklayarak derleme sürecini başlatabilirsiniz. Bu betik, gerekli bağımlılıkları otomatik olarak kurar ve `dist` klasörünün içerisine kurulum dosyasını (`.exe`) üretir. Terminal kullanmayı tercih ederseniz aşağıdaki komutu çalıştırabilirsiniz:
+
+```bash
+npm install && npm run dist
 ```
 
-Kullanıcı ayarları ve takip listesi tek bir JSON dosyasında saklanır (dosyanın yolu Durum sekmesinde görüntülenebilir). Herhangi bir dış veritabanı (SQL/NoSQL) kullanılmaz; bu sayede yerel derleme (native build) gerektiren uğraştırıcı bağımlılıklar ortadan kaldırılmıştır.
+Geliştirme aşamasında uygulamayı derlemeden doğrudan pencere olarak açmak için:
 
----
+```bash
+npm run app
+```
 
-## Testler
+Yalnızca arka plan sunucusunu çalıştırıp arayüze tarayıcı üzerinden erişmek için:
+
+```bash
+npm start
+```
+
+Projeyi derlemek veya çalıştırmak için Node.js 18 veya üzeri bir sürüm gereklidir. Projede derleme (native build) gerektiren ek bir kütüphane, harici bir veritabanı sunucusu ya da Docker bağımlılığı bulunmamaktadır.
+
+### Proje Yapısı
+
+```
+electron/main.js           Masaüstü pencere yönetimi; Express sunucusunu kendi içinde başlatır
+src/config.js              Uygulama ayarları (yalnızca yerel davranışlar, siteye ait veri içermez)
+src/net/client.js          Çift kuyruklu HTTP istemcisi (istek tekrarlama ve bekleme mekanizmaları)
+src/net/cineverse.js       Katalog uç noktaları ve koltuk planı veri akışı
+src/parse/                 Sunucudan gelen HTML verilerini ayrıştıran (parse eden) modüller
+src/algo/seatDetection.js  Salon boyutuna göre dinamik ölçeklenen koltuk bulma algoritması
+src/seats.js               Veri önbellekleme (cache) ve paralel istek yönetimi
+src/store.js               Yerel veritabanı yedeği olarak çalışan ufak JSON dosyası (favoriler, takipler, ayarlar)
+src/api/routes.js          Arayüz ile haberleşen yerel HTTP rotaları (routes)
+public/                    Kullanıcı arayüzünü (UI) barındıran klasör (üç panelli tasarım)
+```
+
+Uygulamaya ait ayarlar ve takip listesi verileri sistemde tek bir JSON dosyasında tutulur. Bu dosyanın tam yolunu uygulama içindeki **Durum** sekmesinden öğrenebilirsiniz.
+
+### Testler
 
 ```bash
 npm test
 ```
 
-Projeye dahil 50 adet test bulunmaktadır. Koltuk planı test verileri (fixtures) 71, 125 ve 256 koltukluk üç farklı salon boyutundan alınmıştır. Bunun sebebi, algoritmanın başlangıçta sadece 256 koltukluk bir salona göre ayarlanmış olması ve bu boyutun diğer küçük/büyük salonları tam temsil edememesiydi.
+Komut çalıştırıldığında 50 adet birim testi yürütülür. Testlerde kullanılan koltuk planı örnek verileri (fixtures) üç farklı salon boyutundan (71, 125 ve 256 koltuk) alınmıştır. Bunun sebebi, sıralama algoritmasının ilk sürümlerde yalnızca 256 koltukluk bir salona göre tasarlanmış olması ve bu tekil durumun diğer salon türlerini doğru temsil edememesiydi.
 
-Sitenin altyapısı değişirse test verilerini kolayca yenileyebilirsiniz:
+Eğer sitenin arayüzünde veya veri yapısında bir değişiklik olursa, testlerde kullanılan örnek verileri (fixtures) güncellemek için:
 
 ```bash
 npm run capture:fixtures
 ```
 
-Ayrıştırıcılar (parsers) boş bir sonuç döndürmek yerine doğrudan **hata fırlatacak** şekilde tasarlanmıştır. İlk sürümün en büyük problemi hataları sessizce yutmasıydı (silent failure); güncel testler tam olarak bu durumun tekrarlanmasını önlemek için yazılmıştır.
+Uygulamadaki ayrıştırıcılar (parsers) veriyi okuyamadığında boş bir sonuç döndürmek yerine doğrudan **hata (exception) fırlatır**. Projenin ilk sürümündeki en büyük yapısal hata sessizce başarısız olmasıydı (silent failure); boş sonuçlar geçerli veri gibi algılanıyor, önbelleğe yazılıyor ve kullanıcıya "salonda yer yok" şeklinde yanlış bilgi yansıtılıyordu. Test paketi ve katı hata yönetimi, bu sorunun tekrar yaşanmasını engellemek amacıyla oluşturulmuştur.
 
 ---
 
 ## Kısıtlamalar ve Bilinmesi Gerekenler
 
-- Uygulamanın kullandığı API'ler, sitenin kendi arayüzünün (frontend) kullandığı belgelenmemiş (undocumented) uç noktalardır. Haber verilmeksizin değişebilirler; böyle bir durumda testler hata verecektir.
-- Koltuk planı sorgulamak, sunucu tarafında geçici bir sepet oluşturur. Ancak bu işlem; giriş yapmayı, ödeme adımını veya koltukları kilitlemeyi içermez. Sitede gezinirken herhangi bir kullanıcının "Devam Et" butonuna basmasından farksızdır. Yine de otomatik tarama açıkken bu işlem, tıkladığınız her seans için arka planda tekrarlanır.
-- Bilet fiyatları uygulama içinde gösterilir, fakat uygulama hiçbir şekilde satın alma sürecine müdahil olmaz veya bilet almaz.
+- Uygulamanın kullandığı uç noktalar (endpoints) tamamen resmi sitenin kendi arayüzüne aittir ve açık bir şekilde belgelenmemiştir (undocumented). Bu API yapısı haber verilmeksizin değiştirilebilir. Böyle bir durumda uygulamanın birim testleri hata vermeye başlayacaktır.
+- Sunucudan koltuk planı verisini çekebilmek için arka planda geçici bir sepet oturumu (session) oluşturulması gerekmektedir. Bu işlem herhangi bir üyelik girişi, ödeme adımı veya koltuk kilitleme işlemi içermez; standart bir ziyaretçinin tarayıcıda koltuk seçimi adımına geçmesiyle birebir aynıdır. Yine de otomatik tarama aktif olduğunda, bu geçici sepet oluşturma işlemi görüntülenen her seans için arka planda tekrarlanır.
+- Uygulama güncel bilet fiyatlarını okuyup gösterir; ancak hiçbir aşamada satın alma veya ödeme adımlarına dahil olmaz.
+
+---
+
+## Yasal Uyarı (Legal Disclaimer)
+
+Bu proje (CineSeat) tamamen bağımsız, kişisel ve açık kaynaklı bir geliştirme çalışmasıdır. **Paribu Cineverse**, **CGV Mars Cinema Group** veya ilgili herhangi bir ticari kuruluş ile hiçbir resmi bağı, ortaklığı, sponsorluğu veya anlaşması bulunmamaktadır. 
+
+- Uygulama; bilet satışı yapmaz, ödeme bilgilerini işlemez ve herhangi bir kişisel veri toplamaz.
+- Kullanılan veriler, sitenin bilet satış sayfalarında anlık olarak ziyaretçilere sunulan herkese açık bilgilerin derlenmesinden ibarettir. 
+- Sunulan koltuk bilgilerinin veya fiyatların %100 doğruluğu ya da sürekliliği garanti edilmez; API yapısındaki olası değişiklikler nedeniyle uygulama geçici veya kalıcı olarak çalışmayı durdurabilir.
+- Uygulamanın kullanımı tamamen son kullanıcının kendi sorumluluğundadır. Bu yazılımın kullanımından doğabilecek dolaylı veya dolaysız hiçbir maddi/manevi zarardan (biletin yanlış alınması, IP adresinin geçici olarak kısıtlanması vb.) geliştirici sorumlu tutulamaz.
+
+Ticari marka hakları ve sistem verileri ilgili sahiplerine aittir. Bu proje yalnızca kişisel kullanım, eğitim ve kolaylık sağlama amacıyla geliştirilmiştir.
