@@ -1,0 +1,425 @@
+[
+  {
+    "Slug": "/orumcek-adam-yepyeni-bir-gun",
+    "Id": "3dc140fe-f011-4d4c-8c9d-0c468e786742",
+    "Title": "Örümcek-Adam: Yepyeni Bir Gün",
+    "OriginalTitle": "Spider-Man: Brand New Day",
+    "ImageUrl": "/files/movie_posters/HO00008061_639204176277423683_orumcek-adam-yepyeni-bir-gun.png",
+    "FirstAvailableSessionDate": "2026-08-02T00:00:00",
+    "OpeningDate": "2026-07-31T00:00:00",
+    "RunTime": 145,
+    "Genre": "Fantastik",
+    "Rate": 83,
+    "IsCgvArthouse": false,
+    "IsBulkTicketSales": false,
+    "IsFollowed": false,
+    "FilmAttributes": [
+      {
+        "Title": "2D",
+        "Slug": "/2d",
+        "Selected": false,
+        "Id": "2585da02-dffc-4114-9c7e-67e634be34d1"
+      },
+      {
+        "Title": "3D",
+        "Slug": "/3d",
+        "Selected": false,
+        "Id": "96038ebe-63a3-486d-af12-d5b033441987"
+      },
+      {
+        "Title": "4DX",
+        "Slug": "/4dx",
+        "Selected": false,
+        "Id": "a88d6233-5128-4389-a80a-66593df9eb5e"
+      },
+      {
+        "Title": "Dublajlı",
+        "Slug": "/dub",
+        "Selected": false,
+        "Id": "179b36ca-655d-4e45-bcf9-c765cbacb422"
+      },
+      {
+        "Title": "GoldClass",
+        "Slug": "/gold-class",
+        "Selected": false,
+        "Id": "a8cdde5d-4f90-4525-9f6c-01299392ca99"
+      },
+      {
+        "Title": "Premium Cinema",
+        "Slug": "/premium-cinema",
+        "Selected": false,
+        "Id": "d1d7ee19-2c1b-4b85-af4b-9a193a49e4fd"
+      },
+      {
+        "Title": "ScreenX",
+        "Slug": "/screenx",
+        "Selected": false,
+        "Id": "48d5745c-a54d-42fd-bb9e-24a9514b431b"
+      },
+      {
+        "Title": "Sky Auditorium",
+        "Slug": "/sky-auditorium",
+        "Selected": false,
+        "Id": "8788c66d-22a2-4c65-a4d7-a15f67af2c11"
+      },
+      {
+        "Title": "Skybox",
+        "Slug": "/skybox",
+        "Selected": false,
+        "Id": "a1888e58-cb32-4bac-9672-11867ec8669b"
+      },
+      {
+        "Title": "Starium",
+        "Slug": "/starium",
+        "Selected": false,
+        "Id": "21000c4f-9b7d-45f2-b7b8-2e30d5ef479f"
+      },
+      {
+        "Title": "Altyazılı",
+        "Slug": "/sub",
+        "Selected": false,
+        "Id": "5e0c618f-262c-4e8d-a3a7-8b8a4b879924"
+      },
+      {
+        "Title": "VIP",
+        "Slug": "/vip",
+        "Selected": false,
+        "Id": "dbe9705e-71d1-4c04-a9ec-17f05eceb719"
+      }
+    ],
+    "FilmRatings": [
+      {
+        "Id": "14e904f4-9dad-42ff-8c77-ea4ea0daaaf5",
+        "Title": "13+",
+        "IconCls": "icon--movie-plus-thirteen-black"
+      },
+      {
+        "Id": "6979beaf-f482-4553-8603-8d5b529fd878",
+        "Title": "Olumsuz",
+        "IconCls": "icon--movie-negative-black"
+      },
+      {
+        "Id": "e35c8f24-3ce6-40fd-8a93-7e5a8990b081",
+        "Title": "Şiddet",
+        "IconCls": "icon--movie-violence-black"
+      }
+    ],
+    "Technologies": [
+      {
+        "Title": "4DX",
+        "ImageUrl": "/Files/Techs/4dx-dark.png",
+        "Identifier": "4dx",
+        "DetailUrl": "/ayricalikli-salonlar/4dx"
+      },
+      {
+        "Title": "GOLD CLASS",
+        "ImageUrl": "/Files/goldclass/gold_logo-01_new.png",
+        "Identifier": "goldclass",
+        "DetailUrl": "/ayricalikli-salonlar/gold-class"
+      },
+      {
+        "Title": "ScreenX",
+        "ImageUrl": "/Files/Teknolojiler/screenxlogo-new.png",
+        "Identifier": "screenx",
+        "DetailUrl": "/ayricalikli-salonlar/screenx"
+      },
+      {
+        "Title": "Starium",
+        "ImageUrl": "/Files/Teknolojiler/Starium_logo.png",
+        "Identifier": "starium",
+        "DetailUrl": "/ayricalikli-salonlar/starium"
+      },
+      {
+        "Title": "Skybox",
+        "ImageUrl": "/Files/Teknolojiler/skybox_logo.png",
+        "Identifier": "skybox",
+        "DetailUrl": "/ayricalikli-salonlar/skybox"
+      }
+    ],
+    "IsPreSales": false,
+    "IsVIPPreSales": false,
+    "Text": "Örümcek-Adam: Yepyeni Bir Gün",
+    "Value": "3dc140fe-f011-4d4c-8c9d-0c468e786742",
+    "IsSelected": false,
+    "Tags": [
+      "Spider-Man: Brand New Day"
+    ]
+  },
+  {
+    "Slug": "/the-odyssey",
+    "Id": "3f8609ac-3624-40cc-b715-2aab5ad4f799",
+    "Title": "The Odyssey",
+    "OriginalTitle": "The Odyssey",
+    "ImageUrl": "/files/movie_posters/HO00008058_639136678089149026_the-odyssey.png",
+    "FirstAvailableSessionDate": "2026-08-02T00:00:00",
+    "OpeningDate": "2026-07-17T00:00:00",
+    "RunTime": 172,
+    "Genre": "Aksiyon",
+    "Rate": 88,
+    "IsCgvArthouse": false,
+    "IsBulkTicketSales": false,
+    "IsFollowed": false,
+    "FilmAttributes": [
+      {
+        "Title": "2D",
+        "Slug": "/2d",
+        "Selected": false,
+        "Id": "2585da02-dffc-4114-9c7e-67e634be34d1"
+      },
+      {
+        "Title": "Dublajlı",
+        "Slug": "/dub",
+        "Selected": false,
+        "Id": "179b36ca-655d-4e45-bcf9-c765cbacb422"
+      },
+      {
+        "Title": "GoldClass",
+        "Slug": "/gold-class",
+        "Selected": false,
+        "Id": "a8cdde5d-4f90-4525-9f6c-01299392ca99"
+      },
+      {
+        "Title": "IMAX",
+        "Slug": "/imax",
+        "Selected": false,
+        "Id": "99f310fc-6fcc-4bc2-bb52-2001eda8ac0d"
+      },
+      {
+        "Title": "Premium Cinema",
+        "Slug": "/premium-cinema",
+        "Selected": false,
+        "Id": "d1d7ee19-2c1b-4b85-af4b-9a193a49e4fd"
+      },
+      {
+        "Title": "Altyazılı",
+        "Slug": "/sub",
+        "Selected": false,
+        "Id": "5e0c618f-262c-4e8d-a3a7-8b8a4b879924"
+      },
+      {
+        "Title": "Tempur",
+        "Slug": "/tempur",
+        "Selected": false,
+        "Id": "623b3071-d40d-4093-8b2d-02f26c2e52dd"
+      }
+    ],
+    "FilmRatings": [
+      {
+        "Id": "55e5d354-4189-4b81-9af3-01bba743b9ce",
+        "Title": "16+",
+        "IconCls": "icon--movie-plus-sixteen-black"
+      },
+      {
+        "Id": "6979beaf-f482-4553-8603-8d5b529fd878",
+        "Title": "Olumsuz",
+        "IconCls": "icon--movie-negative-black"
+      },
+      {
+        "Id": "e35c8f24-3ce6-40fd-8a93-7e5a8990b081",
+        "Title": "Şiddet",
+        "IconCls": "icon--movie-violence-black"
+      }
+    ],
+    "Technologies": [
+      {
+        "Title": "IMAX",
+        "ImageUrl": "/files/Teknolojiler/imax.png",
+        "Identifier": "imax",
+        "DetailUrl": "/ayricalikli-salonlar/imax"
+      },
+      {
+        "Title": "GOLD CLASS",
+        "ImageUrl": "/Files/goldclass/gold_logo-01_new.png",
+        "Identifier": "goldclass",
+        "DetailUrl": "/ayricalikli-salonlar/gold-class"
+      },
+      {
+        "Title": "Tempur Sinema",
+        "ImageUrl": "/files/Teknolojiler/Untitled-3-01.png",
+        "Identifier": "tempur",
+        "DetailUrl": "/ayricalikli-salonlar/tempur-sinema"
+      }
+    ],
+    "IsPreSales": false,
+    "IsVIPPreSales": false,
+    "Text": "The Odyssey",
+    "Value": "3f8609ac-3624-40cc-b715-2aab5ad4f799",
+    "IsSelected": false,
+    "Tags": [
+      "The Odyssey"
+    ]
+  },
+  {
+    "Slug": "/minyonlar-ve-canavarlar",
+    "Id": "e521c569-9439-4a2f-b842-938ff3931de0",
+    "Title": "Minyonlar ve Canavarlar",
+    "OriginalTitle": "Minions & Monsters",
+    "ImageUrl": "/files/movie_posters/HO00008056_639167852253125837_minyonlar-ve-canavarlar.png",
+    "FirstAvailableSessionDate": "2026-08-03T00:00:00",
+    "OpeningDate": "2026-07-02T00:00:00",
+    "RunTime": 90,
+    "Genre": "Animasyon",
+    "Rate": 74,
+    "IsCgvArthouse": false,
+    "IsBulkTicketSales": false,
+    "IsFollowed": false,
+    "FilmAttributes": [
+      {
+        "Title": "2D",
+        "Slug": "/2d",
+        "Selected": false,
+        "Id": "2585da02-dffc-4114-9c7e-67e634be34d1"
+      },
+      {
+        "Title": "Dublajlı",
+        "Slug": "/dub",
+        "Selected": false,
+        "Id": "179b36ca-655d-4e45-bcf9-c765cbacb422"
+      },
+      {
+        "Title": "GoldClass",
+        "Slug": "/gold-class",
+        "Selected": false,
+        "Id": "a8cdde5d-4f90-4525-9f6c-01299392ca99"
+      },
+      {
+        "Title": "Premium Cinema",
+        "Slug": "/premium-cinema",
+        "Selected": false,
+        "Id": "d1d7ee19-2c1b-4b85-af4b-9a193a49e4fd"
+      },
+      {
+        "Title": "Sky Auditorium",
+        "Slug": "/sky-auditorium",
+        "Selected": false,
+        "Id": "8788c66d-22a2-4c65-a4d7-a15f67af2c11"
+      },
+      {
+        "Title": "Tempur",
+        "Slug": "/tempur",
+        "Selected": false,
+        "Id": "623b3071-d40d-4093-8b2d-02f26c2e52dd"
+      }
+    ],
+    "FilmRatings": [
+      {
+        "Id": "3e97fa32-db6e-411b-a539-97a96f1765ca",
+        "Title": "6+",
+        "IconCls": "icon--movie-plus-six-black"
+      },
+      {
+        "Id": "6979beaf-f482-4553-8603-8d5b529fd878",
+        "Title": "Olumsuz",
+        "IconCls": "icon--movie-negative-black"
+      },
+      {
+        "Id": "e35c8f24-3ce6-40fd-8a93-7e5a8990b081",
+        "Title": "Şiddet",
+        "IconCls": "icon--movie-violence-black"
+      }
+    ],
+    "Technologies": [
+      {
+        "Title": "GOLD CLASS",
+        "ImageUrl": "/Files/goldclass/gold_logo-01_new.png",
+        "Identifier": "goldclass",
+        "DetailUrl": "/ayricalikli-salonlar/gold-class"
+      },
+      {
+        "Title": "Tempur Sinema",
+        "ImageUrl": "/files/Teknolojiler/Untitled-3-01.png",
+        "Identifier": "tempur",
+        "DetailUrl": "/ayricalikli-salonlar/tempur-sinema"
+      }
+    ],
+    "IsPreSales": false,
+    "IsVIPPreSales": false,
+    "Text": "Minyonlar ve Canavarlar",
+    "Value": "e521c569-9439-4a2f-b842-938ff3931de0",
+    "IsSelected": false,
+    "Tags": [
+      "Minions & Monsters"
+    ]
+  },
+  {
+    "Slug": "/oyuncak-hikayesi-5",
+    "Id": "b7962d5c-0488-4a04-b714-eafb76372b97",
+    "Title": "Oyuncak Hikayesi 5",
+    "OriginalTitle": "Toy Story 5",
+    "ImageUrl": "/files/movie_posters/HO00008052_639167834246901404_oyuncak-hikayesi-5.png",
+    "FirstAvailableSessionDate": "2026-08-03T00:00:00",
+    "OpeningDate": "2026-06-19T00:00:00",
+    "RunTime": 100,
+    "Genre": "Animasyon",
+    "Rate": 81,
+    "IsCgvArthouse": false,
+    "IsBulkTicketSales": false,
+    "IsFollowed": false,
+    "FilmAttributes": [
+      {
+        "Title": "2D",
+        "Slug": "/2d",
+        "Selected": false,
+        "Id": "2585da02-dffc-4114-9c7e-67e634be34d1"
+      },
+      {
+        "Title": "Dublajlı",
+        "Slug": "/dub",
+        "Selected": false,
+        "Id": "179b36ca-655d-4e45-bcf9-c765cbacb422"
+      },
+      {
+        "Title": "GoldClass",
+        "Slug": "/gold-class",
+        "Selected": false,
+        "Id": "a8cdde5d-4f90-4525-9f6c-01299392ca99"
+      },
+      {
+        "Title": "Premium Cinema",
+        "Slug": "/premium-cinema",
+        "Selected": false,
+        "Id": "d1d7ee19-2c1b-4b85-af4b-9a193a49e4fd"
+      },
+      {
+        "Title": "Tempur",
+        "Slug": "/tempur",
+        "Selected": false,
+        "Id": "623b3071-d40d-4093-8b2d-02f26c2e52dd"
+      }
+    ],
+    "FilmRatings": [
+      {
+        "Id": "3e97fa32-db6e-411b-a539-97a96f1765ca",
+        "Title": "6+",
+        "IconCls": "icon--movie-plus-six-black"
+      },
+      {
+        "Id": "6979beaf-f482-4553-8603-8d5b529fd878",
+        "Title": "Olumsuz",
+        "IconCls": "icon--movie-negative-black"
+      }
+    ],
+    "Technologies": [
+      {
+        "Title": "GOLD CLASS",
+        "ImageUrl": "/Files/goldclass/gold_logo-01_new.png",
+        "Identifier": "goldclass",
+        "DetailUrl": "/ayricalikli-salonlar/gold-class"
+      },
+      {
+        "Title": "Tempur Sinema",
+        "ImageUrl": "/files/Teknolojiler/Untitled-3-01.png",
+        "Identifier": "tempur",
+        "DetailUrl": "/ayricalikli-salonlar/tempur-sinema"
+      }
+    ],
+    "IsPreSales": false,
+    "IsVIPPreSales": false,
+    "Text": "Oyuncak Hikayesi 5",
+    "Value": "b7962d5c-0488-4a04-b714-eafb76372b97",
+    "IsSelected": false,
+    "Tags": [
+      "Toy Story 5"
+    ]
+  }
+]

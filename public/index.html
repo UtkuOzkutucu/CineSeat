@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#141414" />
+    <title>CineSeat</title>
+    <link rel="stylesheet" href="/style.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand">
+        <span class="brand-mark">◗</span>
+        <span class="brand-name">CineSeat</span>
+      </div>
+
+      <label class="ticket-count">
+        <span>Bilet</span>
+        <button type="button" id="tc-minus" class="stepper" aria-label="Bilet sayısını azalt">−</button>
+        <output id="tc-value">2</output>
+        <button type="button" id="tc-plus" class="stepper" aria-label="Bilet sayısını artır">+</button>
+      </label>
+
+      <nav class="topnav" role="tablist">
+        <button class="topnav-btn is-active" data-tab="book" role="tab">Bilet Al</button>
+        <button class="topnav-btn" data-tab="follows" role="tab">Takip</button>
+        <button class="topnav-btn" data-tab="status" role="tab">Durum</button>
+      </nav>
+    </header>
+
+    <!-- Bilet Al: the three panels -->
+    <main id="tab-book" class="board">
+      <!-- Panel A / B swap places; `order` is driven by the mode class on .board -->
+      <section class="panel" id="panel-cinema">
+        <div class="panel-head">
+          <h2>Sinema Seçimi</h2>
+          <div class="panel-tabs" id="cinema-tabs">
+            <button class="ptab is-active" data-scope="all">Tümü</button>
+            <button class="ptab" data-scope="fav">Favoriler</button>
+            <button class="ptab" data-scope="near">Yakınımdakiler</button>
+          </div>
+        </div>
+        <div class="panel-filters">
+          <div class="combo" id="city-combo">
+            <button type="button" class="combo-btn" id="city-btn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="city-label">Şehir seç</span><span class="caret">▾</span>
+            </button>
+            <div class="combo-pop" id="city-pop" hidden>
+              <input type="search" id="city-search" placeholder="Şehir ara…" autocomplete="off" />
+              <ul id="city-list" role="listbox"></ul>
+            </div>
+          </div>
+          <div class="combo" id="tech-combo">
+            <button type="button" class="combo-btn" id="tech-btn" aria-haspopup="listbox" aria-expanded="false">
+              <span id="tech-label">Ayrıcalıklı salon seç</span><span class="caret">▾</span>
+            </button>
+            <div class="combo-pop" id="tech-pop" hidden>
+              <ul id="tech-list" role="listbox"></ul>
+            </div>
+          </div>
+          <input type="search" id="cinema-search" class="panel-search" placeholder="Salon ara…" autocomplete="off" />
+        </div>
+        <div class="panel-body" id="cinema-list"></div>
+      </section>
+
+      <button type="button" id="swap-btn" class="swap" title="Sıralamayı değiştir" aria-label="Film ve sinema sırasını değiştir">⇄</button>
+
+      <section class="panel" id="panel-film">
+        <div class="panel-head">
+          <h2>Film Seçimi</h2>
+          <div class="panel-tabs" id="film-tabs">
+            <button class="ptab is-active" data-scope="all">Tümü</button>
+            <button class="ptab" data-scope="presale">Ön Satış</button>
+          </div>
+        </div>
+        <div class="panel-filters">
+          <input type="search" id="film-search" class="panel-search" placeholder="Film ara…" autocomplete="off" />
+        </div>
+        <div class="panel-body" id="film-list"></div>
+      </section>
+
+      <section class="panel" id="panel-session">
+        <div class="panel-head">
+          <h2>Tarih ve Seans Seçimi</h2>
+          <label class="autoscan">
+            <input type="checkbox" id="autoscan-toggle" checked />
+            <span>Koltukları otomatik tara</span>
+          </label>
+        </div>
+        <div class="date-strip" id="date-strip"></div>
+        <div class="scan-bar" id="scan-bar" hidden>
+          <div class="progress"><div class="progress-fill" id="scan-fill"></div></div>
+          <span id="scan-label"></span>
+          <button type="button" class="link-btn" id="scan-cancel">İptal</button>
+        </div>
+        <div class="panel-body" id="session-list"></div>
+      </section>
+    </main>
+
+    <!-- Takip -->
+    <main id="tab-follows" class="single" hidden>
+      <div class="single-inner">
+        <div class="single-head">
+          <h2>Takip listesi</h2>
+          <button type="button" class="link-btn" id="clear-expired">Geçmişleri temizle</button>
+        </div>
+        <div id="follow-list"></div>
+      </div>
+    </main>
+
+    <!-- Durum -->
+    <main id="tab-status" class="single" hidden>
+      <div class="single-inner">
+        <h2>Durum</h2>
+        <div id="status-panel"></div>
+      </div>
+    </main>
+
+    <!-- Seat map -->
+    <div class="sheet" id="seat-sheet" hidden>
+      <div class="sheet-backdrop" data-close-sheet></div>
+      <div class="sheet-panel" role="dialog" aria-modal="true" aria-labelledby="sheet-title">
+        <header class="sheet-head">
+          <div>
+            <h3 id="sheet-title"></h3>
+            <p id="sheet-sub"></p>
+          </div>
+          <button type="button" class="icon-btn" data-close-sheet aria-label="Kapat">✕</button>
+        </header>
+        <div class="sheet-body" id="seat-body"></div>
+      </div>
+    </div>
+
+    <!-- After-midnight warning: the site's own wording, and it must be acknowledged -->
+    <div class="modal" id="warn-modal" hidden>
+      <div class="modal-backdrop"></div>
+      <div class="modal-card" role="alertdialog" aria-modal="true" aria-labelledby="warn-title" aria-describedby="warn-text">
+        <h3 id="warn-title">Gece seansı</h3>
+        <p id="warn-text"></p>
+        <button type="button" class="btn-primary" id="warn-ok">Tamam</button>
+      </div>
+    </div>
+
+    <div id="toast" class="toast" hidden role="status" aria-live="polite"></div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>

@@ -1,0 +1,152 @@
+[
+  {
+    "Text": "İstanbul Anadolu",
+    "Value": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+    "IsSelected": false
+  },
+  {
+    "Text": "İstanbul Avrupa",
+    "Value": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+    "IsSelected": false
+  },
+  {
+    "Text": "Ankara",
+    "Value": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+    "IsSelected": false
+  },
+  {
+    "Text": "İzmir",
+    "Value": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+    "IsSelected": false
+  },
+  {
+    "Text": "Adana",
+    "Value": "2e56cf06-517b-4e1b-99eb-e7d098676cc3",
+    "IsSelected": false
+  },
+  {
+    "Text": "Afyon",
+    "Value": "e1d6f2e4-da09-4d77-833a-a5229a54af04",
+    "IsSelected": false
+  },
+  {
+    "Text": "Antalya",
+    "Value": "31902731-ff95-4af0-84d4-c23e1682993f",
+    "IsSelected": false
+  },
+  {
+    "Text": "Bolu",
+    "Value": "8b268b4e-07c5-43f8-b3df-b725d453851d",
+    "IsSelected": false
+  },
+  {
+    "Text": "Bursa",
+    "Value": "e1c68790-7642-4cb5-8dca-578889e8be07",
+    "IsSelected": false
+  },
+  {
+    "Text": "Çanakkale",
+    "Value": "f1b9e08c-945c-4d75-9249-15b7b03d4781",
+    "IsSelected": false
+  },
+  {
+    "Text": "Çorum",
+    "Value": "a2e3c7b6-926c-4b69-880f-cda56a5bfdb3",
+    "IsSelected": false
+  },
+  {
+    "Text": "Denizli",
+    "Value": "eaec82a7-1836-47e7-9ea0-59374b6d05fd",
+    "IsSelected": false
+  },
+  {
+    "Text": "Diyarbakır",
+    "Value": "35d15470-cb07-4624-8055-ed8b4658d87c",
+    "IsSelected": false
+  },
+  {
+    "Text": "Erzurum",
+    "Value": "285d00b7-d58a-41e4-b24d-4d9655748ab9",
+    "IsSelected": false
+  },
+  {
+    "Text": "Eskişehir",
+    "Value": "a5a9d993-05a5-4932-8018-501f8dc8b161",
+    "IsSelected": false
+  },
+  {
+    "Text": "Gaziantep",
+    "Value": "e1e78ead-3a87-455d-b392-5d183689b378",
+    "IsSelected": false
+  },
+  {
+    "Text": "Kahramanmaraş",
+    "Value": "57c3add8-4e14-4e1f-8327-cbcfee75ec5f",
+    "IsSelected": false
+  },
+  {
+    "Text": "Kayseri",
+    "Value": "8778adea-509f-4d01-8e7a-5d5c190d328d",
+    "IsSelected": false
+  },
+  {
+    "Text": "Kırıkkale",
+    "Value": "0a194dde-3c2e-4095-9578-d48c8a293dd4",
+    "IsSelected": false
+  },
+  {
+    "Text": "Kocaeli",
+    "Value": "6309ee07-5031-47d9-a8fd-db409a8ed77d",
+    "IsSelected": false
+  },
+  {
+    "Text": "Konya",
+    "Value": "fed723b1-ea01-4420-bc3a-eac9e3e21be3",
+    "IsSelected": false
+  },
+  {
+    "Text": "Mersin",
+    "Value": "2fb27a14-b291-42a4-90f6-1c48bf1661bd",
+    "IsSelected": false
+  },
+  {
+    "Text": "Muğla",
+    "Value": "a3c06df8-2662-42d6-b035-2a3646ae027f",
+    "IsSelected": false
+  },
+  {
+    "Text": "Osmaniye",
+    "Value": "1b3cd5c9-772e-4930-8abe-a9507712420a",
+    "IsSelected": false
+  },
+  {
+    "Text": "Sakarya",
+    "Value": "1274474a-5625-4e76-90dd-259efc8b266d",
+    "IsSelected": false
+  },
+  {
+    "Text": "Samsun",
+    "Value": "de40e499-1256-41ae-88c1-b540771ad048",
+    "IsSelected": false
+  },
+  {
+    "Text": "Şanlıurfa",
+    "Value": "2d75e324-90b2-4ba2-bac7-60f3ce4b7691",
+    "IsSelected": false
+  },
+  {
+    "Text": "Tekirdağ",
+    "Value": "f1a0adb3-1e0c-46f4-9576-09c915d915ea",
+    "IsSelected": false
+  },
+  {
+    "Text": "Trabzon",
+    "Value": "ef61352e-4795-42e5-9179-2303152d9d5f",
+    "IsSelected": false
+  },
+  {
+    "Text": "Van",
+    "Value": "0271b112-0b39-4a05-a9e4-c1a6fbf35b22",
+    "IsSelected": false
+  }
+]

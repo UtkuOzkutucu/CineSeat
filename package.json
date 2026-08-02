@@ -1,0 +1,54 @@
+{
+  "name": "cineseat",
+  "version": "3.0.0",
+  "description": "CineSeat — Paribu Cineverse için salon/film/seans gezinmesi ve akıllı koltuk önerisi",
+  "type": "module",
+  "main": "electron/main.js",
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "app": "electron .",
+    "icon": "node tools/make-icon.js",
+    "dist": "node tools/make-icon.js && electron-builder",
+    "test": "node --test tests/",
+    "capture:fixtures": "node tests/capture-fixtures.js"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0",
+    "express": "^4.22.2",
+    "p-queue": "^8.1.1"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.cineseat.app",
+    "productName": "CineSeat",
+    "directories": {
+      "output": "dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "electron/**/*",
+      "src/**/*",
+      "public/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "artifactName": "CineSeat-Setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "CineSeat"
+    }
+  }
+}

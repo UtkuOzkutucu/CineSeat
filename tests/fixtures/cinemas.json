@@ -1,0 +1,1609 @@
+{
+  "SponsorName": "Paribu Cineverse",
+  "Cinemas": [
+    {
+      "Id": "b2d50211-a9b4-45ee-8209-8933eb3bc8fb",
+      "Title": "Bodrum Midtown Alışveriş Merkezi",
+      "Slug": "/bodrum-midtown",
+      "Distance": 4994.367102900851,
+      "IsSelected": false,
+      "Address": "Midtown Alışveriş Merkezi Kemer Mevkii Ortakent, Bodrum",
+      "Latitude": "37.0585117",
+      "Longitude": "27.3569092",
+      "CinemaBranchNo": "0034",
+      "IsFavorite": false,
+      "SiteGroupId": "a3c06df8-2662-42d6-b035-2a3646ae027f",
+      "Technologies": [],
+      "City": "Muğla",
+      "VistaCinemaId": "0000000069"
+    },
+    {
+      "Id": "0c54a0eb-b6f4-4f77-bee8-5d487aab0d4c",
+      "Title": "Optimum İzmir",
+      "Slug": "/optimum-izmir",
+      "Distance": 5090.7988543870915,
+      "IsSelected": false,
+      "Address": "Optimum İzmir AVM, Akçay Cad. No: 101 Gaziemir 35410 İzmir",
+      "Latitude": "38.3393",
+      "Longitude": "27.1344",
+      "CinemaBranchNo": "0033",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000050"
+    },
+    {
+      "Id": "8bfd0c14-7176-4491-8386-533a7baa800f",
+      "Title": "İzmir Park",
+      "Slug": "/izmir-park",
+      "Distance": 5095.899587686099,
+      "IsSelected": false,
+      "Address": "Güneşli Mahallesi Eşref Paşa Caddesi No : 408 KONAK",
+      "Latitude": "38.403366",
+      "Longitude": "27.1272123",
+      "CinemaBranchNo": "0087",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000076"
+    },
+    {
+      "Id": "6d0abf58-9b07-41ac-9b70-2910803e50d4",
+      "Title": "Konak Pier",
+      "Slug": "/konak-pier",
+      "Distance": 5097.7122859149,
+      "IsSelected": false,
+      "Address": "Konak Pier Alışveriş mrk. 35260 Konak",
+      "Latitude": "38.4228",
+      "Longitude": "27.1298",
+      "CinemaBranchNo": "0032",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000042"
+    },
+    {
+      "Id": "e347fe4c-3d93-4a44-abc8-bb8be49b5686",
+      "Title": "MaviBahçe",
+      "Slug": "/mavibahce",
+      "Distance": 5099.097792885544,
+      "IsSelected": false,
+      "Address": "Mavişehir Mahallesi, Caher Dudayev Blv, 35540 Karşıyaka/ İzmir",
+      "Latitude": "38.4745",
+      "Longitude": "27.0746",
+      "CinemaBranchNo": "0103",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        }
+      ],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000088"
+    },
+    {
+      "Id": "c0b42b67-116f-40cc-a756-d2bc17e50ab3",
+      "Title": "Karşıyaka Hilltown",
+      "Slug": "/karsiyaka-hilltown",
+      "Distance": 5099.427525657745,
+      "IsSelected": false,
+      "Address": "Karşıyaka Hilltown",
+      "Latitude": "38.47861",
+      "Longitude": "27.07417",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [
+        {
+          "Id": "a59ed622-6980-c3d7-51dd-08d6714859c8",
+          "Title": "Skybox",
+          "Identifier": "skybox"
+        },
+        {
+          "Id": "800138e3-59c3-ca6e-0fbe-08d5a44077fa",
+          "Title": "Starium",
+          "Identifier": "starium"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "KARŞIYAKA / IZMIR",
+      "VistaCinemaId": "0000000118"
+    },
+    {
+      "Id": "a0044b4b-8586-44c4-8f10-b24f07dc08b8",
+      "Title": "Point Bornova",
+      "Slug": "/point-bornova",
+      "Distance": 5102.638941877099,
+      "IsSelected": false,
+      "Address": "POINT BORNOVA 4174 SOKAK NO:4 BAĞBURNU MEVKİİ",
+      "Latitude": "38.4298",
+      "Longitude": "27.2077",
+      "CinemaBranchNo": "0101",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [
+        {
+          "Id": "87716c0d-0ded-447f-b67a-7a3a9d1d0ab5",
+          "Title": "MPX ",
+          "Identifier": "mpx"
+        }
+      ],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000085"
+    },
+    {
+      "Id": "987ea293-3d5b-4dcf-ba87-6d4271053599",
+      "Title": "Forum Bornova",
+      "Slug": "/forum-bornova",
+      "Distance": 5104.547087835553,
+      "IsSelected": false,
+      "Address": "FORUM BORNOVA AVM. KAZIM DİRİK MAH. 372 SOK.F1 BLOK BORNOVA-İZMİR",
+      "Latitude": "38.4501",
+      "Longitude": "27.2107",
+      "CinemaBranchNo": "0030",
+      "IsFavorite": false,
+      "SiteGroupId": "c66c6994-387f-4b60-a3a5-0008845fdfce",
+      "Technologies": [],
+      "City": "İzmir",
+      "VistaCinemaId": "0000000027"
+    },
+    {
+      "Id": "a1cdfdee-0581-4584-8101-d8b58d995550",
+      "Title": "Denizli SM",
+      "Slug": "/denizli-sm",
+      "Distance": 5155.314866801777,
+      "IsSelected": false,
+      "Address": "Denizli Sanat Merkezi, Altıntop Mahallesi, 20010 Merkezefendi/ Denizli",
+      "Latitude": "37.774708",
+      "Longitude": "29.085971",
+      "CinemaBranchNo": "0105",
+      "IsFavorite": false,
+      "SiteGroupId": "eaec82a7-1836-47e7-9ea0-59374b6d05fd",
+      "Technologies": [],
+      "City": "Denizli",
+      "VistaCinemaId": "0000000089"
+    },
+    {
+      "Id": "6e8f2cde-f6c9-4f00-bde5-65d4224d277f",
+      "Title": "Antalya Migros",
+      "Slug": "/antalya-migros",
+      "Distance": 5178.983517638327,
+      "IsSelected": false,
+      "Address": "Migros AVM. Meltem Mah. 100. Yıl Bulvarı. Antalya 07070",
+      "Latitude": "36.8827",
+      "Longitude": "30.6591",
+      "CinemaBranchNo": "0038",
+      "IsFavorite": false,
+      "SiteGroupId": "31902731-ff95-4af0-84d4-c23e1682993f",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Antalya",
+      "VistaCinemaId": "0000000005"
+    },
+    {
+      "Id": "9401c5aa-ebe4-463d-82f9-5cf14ddb03af",
+      "Title": "MarkAntalya",
+      "Slug": "/markantalya",
+      "Distance": 5182.529205178294,
+      "IsSelected": false,
+      "Address": "Tahılpazarı Mh. Şarampol Cd. MarkAntalya AVM. No:84 K:4 No:4 Muratpaşa/  ANTALYA",
+      "Latitude": "36.8927",
+      "Longitude": "30.7031",
+      "CinemaBranchNo": "0064",
+      "IsFavorite": false,
+      "SiteGroupId": "31902731-ff95-4af0-84d4-c23e1682993f",
+      "Technologies": [],
+      "City": "Antalya",
+      "VistaCinemaId": "0000000065"
+    },
+    {
+      "Id": "c33d07de-c639-41f6-8921-1ea0206ee131",
+      "Title": "17 Çanakkale Burda",
+      "Slug": "/17-burda",
+      "Distance": 5207.137170376811,
+      "IsSelected": false,
+      "Address": "Barbaros Mah. Atatürk Cad. No: 207 \\ Çanakkale",
+      "Latitude": "40.1237",
+      "Longitude": "26.4105",
+      "CinemaBranchNo": "0091",
+      "IsFavorite": false,
+      "SiteGroupId": "f1b9e08c-945c-4d75-9249-15b7b03d4781",
+      "Technologies": [],
+      "City": "Çanakkale",
+      "VistaCinemaId": "0000000078"
+    },
+    {
+      "Id": "1148b5f5-91e4-49c1-8d5c-abe823dd48f6",
+      "Title": "Manavgat",
+      "Slug": "/manavgat",
+      "Distance": 5219.376801432085,
+      "IsSelected": false,
+      "Address": "Sorgun, 8096 Sk. No:5, 07600 Manavgat/Antalya",
+      "Latitude": "36.7811",
+      "Longitude": "31.4254",
+      "IsFavorite": false,
+      "SiteGroupId": "31902731-ff95-4af0-84d4-c23e1682993f",
+      "Technologies": [],
+      "City": "Manavgat/Antalya",
+      "VistaCinemaId": "0000000095"
+    },
+    {
+      "Id": "b09edf2e-9673-4d22-bb7c-04df87912a4f",
+      "Title": "Park Afyon",
+      "Slug": "/park-afyon",
+      "Distance": 5322.592385811305,
+      "IsSelected": false,
+      "Address": "Güvenevler Mah. Mareşal Fevzi Çakmak Bulvarı ",
+      "Latitude": "38.7552",
+      "Longitude": "30.5544",
+      "CinemaBranchNo": "0097",
+      "IsFavorite": false,
+      "SiteGroupId": "e1d6f2e4-da09-4d77-833a-a5229a54af04",
+      "Technologies": [],
+      "City": "Afyon",
+      "VistaCinemaId": "0000000082"
+    },
+    {
+      "Id": "e6b97dcd-90ad-4694-b5a9-53f0070e52e0",
+      "Title": "Tekira",
+      "Slug": "/tekira",
+      "Distance": 5339.072954968064,
+      "IsSelected": false,
+      "Address": "TEKİRA AVM AYDOĞDU MAH. HÜKÜMET CAD. NO:304 TEKİRDAĞ",
+      "Latitude": "40.9784",
+      "Longitude": "27.5042",
+      "CinemaBranchNo": "0055",
+      "IsFavorite": false,
+      "SiteGroupId": "f1a0adb3-1e0c-46f4-9576-09c915d915ea",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Tekirdağ",
+      "VistaCinemaId": "0000000061"
+    },
+    {
+      "Id": "d08fe2bf-babd-4afb-958e-7e121adc79e7",
+      "Title": "Bursa Marka ",
+      "Slug": "/sur-yapi-marka",
+      "Distance": 5353.0966814295225,
+      "IsSelected": false,
+      "Latitude": "40.2067",
+      "Longitude": "28.9954",
+      "IsFavorite": false,
+      "SiteGroupId": "e1c68790-7642-4cb5-8dca-578889e8be07",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        }
+      ],
+      "City": "Bursa",
+      "VistaCinemaId": "0000000105"
+    },
+    {
+      "Id": "a79a6a9f-f0dd-4f8a-9d6e-7278a80ab15a",
+      "Title": "Bursa Podyumpark",
+      "Slug": "/bursa-podyum",
+      "Distance": 5353.341897512298,
+      "IsSelected": false,
+      "Address": "Cumhuriyet Mah.Nilüfer Hatun Cad.No:114 ",
+      "Latitude": "40.225659",
+      "Longitude": "28.970890",
+      "CinemaBranchNo": "0086",
+      "IsFavorite": false,
+      "SiteGroupId": "e1c68790-7642-4cb5-8dca-578889e8be07",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Bursa",
+      "VistaCinemaId": "0000000075"
+    },
+    {
+      "Id": "5bb8e098-0d74-43a3-a5b4-0ebcd0909782",
+      "Title": "Kent Plaza",
+      "Slug": "/kent-plaza",
+      "Distance": 5374.385647588158,
+      "IsSelected": false,
+      "Address": "Bedir Mah. Ataseven Cad. No:2/305 Selçuklu/KONYA",
+      "Latitude": "37.9056",
+      "Longitude": "32.4931",
+      "CinemaBranchNo": "0049",
+      "IsFavorite": false,
+      "SiteGroupId": "fed723b1-ea01-4420-bc3a-eac9e3e21be3",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Konya",
+      "VistaCinemaId": "0000000043"
+    },
+    {
+      "Id": "3772ca2e-bc34-43f1-acc4-15ec474d68bd",
+      "Title": "Marmara Park",
+      "Slug": "/marmara-park",
+      "Distance": 5402.968769758069,
+      "IsSelected": false,
+      "Address": "Marmara Park Adresi: Güzelyurt mahallesi, 1. Cadde No:33A Esenyurt/İstanbul",
+      "Latitude": "41.01",
+      "Longitude": "28.658",
+      "CinemaBranchNo": "0015",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000046"
+    },
+    {
+      "Id": "50d626ab-e95f-403c-9b01-05d698dfbe2e",
+      "Title": "Espark",
+      "Slug": "/espark",
+      "Distance": 5403.633522529459,
+      "IsSelected": false,
+      "Address": "Üniversite Cad. Eski Bağlar Mah. No.21 Eskişehir",
+      "Latitude": "39.7819",
+      "Longitude": "30.5106",
+      "CinemaBranchNo": "0044",
+      "IsFavorite": false,
+      "SiteGroupId": "a5a9d993-05a5-4932-8018-501f8dc8b161",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Eskişehir",
+      "VistaCinemaId": "0000000024"
+    },
+    {
+      "Id": "31caceca-88c5-4c67-ab15-04e6cf78d34a",
+      "Title": "Aqua Florya",
+      "Slug": "/aqua-florya",
+      "Distance": 5406.6186004876545,
+      "IsSelected": false,
+      "Address": "Aqua Florya AVM, Şenlikköy Mah. Yeşilköy Halkalı Cad.No 93 Florya / İstanbul",
+      "Latitude": "40.9634",
+      "Longitude": "28.7996",
+      "CinemaBranchNo": "0014",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000007"
+    },
+    {
+      "Id": "e81b5aed-cd27-4b7b-b664-f580d56a7bd1",
+      "Title": "Akbatı",
+      "Slug": "/akbati",
+      "Distance": 5407.478620361703,
+      "IsSelected": false,
+      "Address": "İstanbul Avrupa Adresi: Akbatı Alışveriş ve Yaşam Merkezi, Sanayi mah. Esenkent mevkii 1655. Sok No:6, Esenyurt-İstanbul",
+      "Latitude": "41.0565",
+      "Longitude": "28.6679",
+      "CinemaBranchNo": "0008",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "b2075c2a-0582-c7b9-933c-08d3d7edc5de",
+          "Title": "D-BOX",
+          "Identifier": "d-box"
+        },
+        {
+          "Id": "87716c0d-0ded-447f-b67a-7a3a9d1d0ab5",
+          "Title": "MPX ",
+          "Identifier": "mpx"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000003"
+    },
+    {
+      "Id": "8a81339e-2a46-4cb0-ac08-8f933629f93d",
+      "Title": "A Plus",
+      "Slug": "/atakOy-plus",
+      "Distance": 5410.627845392102,
+      "IsSelected": false,
+      "Address": "Ataköy A Plus, Adnan Kahveci Bulvarı 6.Kısım, Ataköy - İstanbul",
+      "Latitude": "40.9781",
+      "Longitude": "28.8506",
+      "CinemaBranchNo": "0009",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000010"
+    },
+    {
+      "Id": "4e3565ed-d069-4db0-9788-3565d1d332ee",
+      "Title": "Capacity",
+      "Slug": "/capacity",
+      "Distance": 5411.698312233946,
+      "IsSelected": false,
+      "Address": "Zeytinlik Mah. Fişekhane Cad. Bakırköy 34140",
+      "Latitude": "40.9774",
+      "Longitude": "28.8715",
+      "CinemaBranchNo": "0010",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000018"
+    },
+    {
+      "Id": "3f0ff406-cec0-44f1-ad3f-cd0e7bafa8d2",
+      "Title": "Kale",
+      "Slug": "/kale",
+      "Distance": 5415.283219348718,
+      "IsSelected": false,
+      "Address": "Güven Mah. Londra Cad. No.89 Güngören- İstanbul",
+      "Latitude": "41.0156",
+      "Longitude": "28.8776",
+      "CinemaBranchNo": "0012",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000039"
+    },
+    {
+      "Id": "e200cd2f-2d0a-483a-a488-68c787e80556",
+      "Title": "Historia",
+      "Slug": "/historia",
+      "Distance": 5418.806866403285,
+      "IsSelected": false,
+      "Address": "Vatan Cad. No:2 Aksaray / Fatih",
+      "Latitude": "41.0129",
+      "Longitude": "28.947",
+      "CinemaBranchNo": "0011",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000036"
+    },
+    {
+      "Id": "09d3a632-8417-49be-8e77-22a33a26ec0a",
+      "Title": "Eyüp - Axis İstanbul AVM",
+      "Slug": "/axis-istanbul",
+      "Distance": 5419.281148297885,
+      "IsSelected": false,
+      "Address": "Topçular Mah., Osman Gazi Cd., 34055 Eyüp/ İstanbul",
+      "Latitude": "41.0348",
+      "Longitude": "28.9213",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000093"
+    },
+    {
+      "Id": "22195e6e-472a-c095-8a8a-08d660d4b8af",
+      "Title": "Avlu 34 AVM",
+      "Slug": "/avlu-34-avm",
+      "Distance": 5421.913996711194,
+      "IsSelected": false,
+      "Address": "Arnavutköy Merkez Mahallesi, 34275 Arnavutköy/Istanbul",
+      "Latitude": "41.1834",
+      "Longitude": "28.7346",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "ebbaf697-d8a2-ce66-c92b-08d7370870d6",
+          "Title": "Premium Cinema",
+          "Identifier": "premium-cinema"
+        },
+        {
+          "Id": "b1eb88d7-ae9d-42be-a467-a5b7e5eb2bf1",
+          "Title": "Sky Auditorium",
+          "Identifier": "sky-auditorium"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000115"
+    },
+    {
+      "Id": "1194ddc2-844a-4e78-8796-7e4e036325f2",
+      "Title": "Tepe Nautilus",
+      "Slug": "/nautilus",
+      "Distance": 5422.430127674608,
+      "IsSelected": false,
+      "Address": "Nautilus AVM, Fatih Cad. No: 1 Acıbadem, Kadıköy/ İstanbul",
+      "Latitude": "41.0014",
+      "Longitude": "29.0319",
+      "CinemaBranchNo": "0019",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "ebbaf697-d8a2-ce66-c92b-08d7370870d6",
+          "Title": "Premium Cinema",
+          "Identifier": "premium-cinema"
+        }
+      ],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000049"
+    },
+    {
+      "Id": "82a0608d-7d68-47aa-97bb-46f8e6acb2aa",
+      "Title": "Vialand AVM",
+      "Slug": "/vialand-avm",
+      "Distance": 5422.532716560645,
+      "IsSelected": false,
+      "Address": "Yeşilpınar Mah Girne Caddesi No:11 / 1K18 - 2ZK43 Eyüp",
+      "Latitude": "41.0724",
+      "Longitude": "28.9222",
+      "CinemaBranchNo": "0059",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "87716c0d-0ded-447f-b67a-7a3a9d1d0ab5",
+          "Title": "MPX ",
+          "Identifier": "mpx"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000063"
+    },
+    {
+      "Id": "6740cfc3-cf17-475b-9a63-5ff8967b2a09",
+      "Title": "Maltepe Piazza",
+      "Slug": "/maltepe-piazza",
+      "Distance": 5422.8260362287165,
+      "IsSelected": false,
+      "Address": "Cevizli Mahallesi, Tugay Yolu Cd. No:71",
+      "Latitude": "40.9188",
+      "Longitude": "29.168",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "800138e3-59c3-ca6e-0fbe-08d5a44077fa",
+          "Title": "Starium",
+          "Identifier": "starium"
+        },
+        {
+          "Id": "33c2763d-1a48-c5cd-8210-08d2a25d135d",
+          "Title": "4DX",
+          "Identifier": "4dx"
+        }
+      ],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000107"
+    },
+    {
+      "Id": "d35b7b68-6b0e-4bf4-9864-fed9136ed76e",
+      "Title": "Hilltown Küçükyalı",
+      "Slug": "/hilltown-kucukyali",
+      "Distance": 5423.167906878994,
+      "IsSelected": false,
+      "Address": "Aydınevler Mahallesi, Çamlıca Sitesi Yolu Sk., 34765 Maltepe/İstanbul",
+      "Latitude": "40.9526",
+      "Longitude": "29.1217",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        },
+        {
+          "Id": "82894b47-8bdc-cb67-1f9a-08d4a280f0a6",
+          "Title": "ScreenX",
+          "Identifier": "screenx"
+        }
+      ],
+      "City": "İstanbul",
+      "VistaCinemaId": "0000000103"
+    },
+    {
+      "Id": "8da2951d-427b-4f8b-98f7-5194d61265a9",
+      "Title": "Anatolium Marmara",
+      "Slug": "/anatolium-marmara",
+      "Distance": 5423.23526135459,
+      "IsSelected": false,
+      "Address": "Soğanlık Yeni Mah, Soğanlık D-100 Kuzey Yanyol Cad. No:72, Kartal ",
+      "Latitude": "40.9188",
+      "Longitude": "29.1755",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "ebbaf697-d8a2-ce66-c92b-08d7370870d6",
+          "Title": "Premium Cinema",
+          "Identifier": "premium-cinema"
+        }
+      ],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000108"
+    },
+    {
+      "Id": "8d079153-ef8c-440b-81fb-6750fa6144c4",
+      "Title": "Akasya",
+      "Slug": "/akasya",
+      "Distance": 5423.599657489367,
+      "IsSelected": false,
+      "Address": "Acıbadem Mahallesi Çeçen Sokak No:25 Üsküdar İstanbul",
+      "Latitude": "41.0006",
+      "Longitude": "29.0547",
+      "CinemaBranchNo": "0065",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "82894b47-8bdc-cb67-1f9a-08d4a280f0a6",
+          "Title": "ScreenX",
+          "Identifier": "screenx"
+        },
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        },
+        {
+          "Id": "b2075c2a-0582-c7b9-933c-08d3d7edc5de",
+          "Title": "D-BOX",
+          "Identifier": "d-box"
+        },
+        {
+          "Id": "ebbaf697-d8a2-ce66-c92b-08d7370870d6",
+          "Title": "Premium Cinema",
+          "Identifier": "premium-cinema"
+        }
+      ],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000066"
+    },
+    {
+      "Id": "e6281097-02e3-494e-a1a9-18fa44c915d3",
+      "Title": "Pendorya",
+      "Slug": "/pendorya",
+      "Distance": 5424.189871997504,
+      "IsSelected": false,
+      "Address": "Pendorya AVM, Çamçeşme Mahallesi, Fabrika Sokak No:5 34899 Pendik/ İstanbul",
+      "Latitude": "40.8658",
+      "Longitude": "29.275",
+      "CinemaBranchNo": "0017",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000055"
+    },
+    {
+      "Id": "3bd398ad-1170-440d-b4a2-c1e36f2b1093",
+      "Title": "Emaar Square Mall",
+      "Slug": "/emaar-square-mall",
+      "Distance": 5424.542274583408,
+      "IsSelected": false,
+      "Address": "Ünalan Mah. Ayazma Cad No:78 Kapı No:B1-N-15 Üskürdar İSTANBUL",
+      "Latitude": "41.0023",
+      "Longitude": "29.0694",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "33c2763d-1a48-c5cd-8210-08d2a25d135d",
+          "Title": "4DX",
+          "Identifier": "4dx"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "82894b47-8bdc-cb67-1f9a-08d4a280f0a6",
+          "Title": "ScreenX",
+          "Identifier": "screenx"
+        }
+      ],
+      "City": "İSTANBUL",
+      "VistaCinemaId": "0000000098"
+    },
+    {
+      "Id": "4a93f940-1998-4304-939c-8c4a6dcd9c1d",
+      "Title": "Cevahir",
+      "Slug": "/cevahir",
+      "Distance": 5425.583592748629,
+      "IsSelected": false,
+      "Address": "Cevahir AVM, Büyükdere Cad.Cevahir Avm.no:22,Kat 2,Şişli,İstanbul",
+      "Latitude": "41.0634",
+      "Longitude": "28.9928",
+      "CinemaBranchNo": "0004",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "87716c0d-0ded-447f-b67a-7a3a9d1d0ab5",
+          "Title": "MPX ",
+          "Identifier": "mpx"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000021"
+    },
+    {
+      "Id": "b5afad11-37e6-4cb2-802a-09d436d8ccd8",
+      "Title": "Trump",
+      "Slug": "/trump",
+      "Distance": 5426.0909009345905,
+      "IsSelected": false,
+      "Address": "TRUMP TOWERS KARKUYUSU SOK. NO :19 34387 ŞİŞLİ",
+      "Latitude": "41.0665",
+      "Longitude": "28.9973",
+      "CinemaBranchNo": "0006",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000070"
+    },
+    {
+      "Id": "4faf0639-1ae8-4cf4-992e-e1b7540182c5",
+      "Title": "Gebze Center",
+      "Slug": "/gebze-center",
+      "Distance": 5426.36275242241,
+      "IsSelected": false,
+      "Address": "Tatlıkuyu Mah. Gebze Center AVM No: 310 / 428 Gebze / Kocaeli",
+      "Latitude": "40.8098",
+      "Longitude": "29.4007",
+      "CinemaBranchNo": "0047",
+      "IsFavorite": false,
+      "SiteGroupId": "6309ee07-5031-47d9-a8fd-db409a8ed77d",
+      "Technologies": [],
+      "City": "Kocaeli",
+      "VistaCinemaId": "0000000034"
+    },
+    {
+      "Id": "b1a0808f-d638-4d73-a96a-09d96e9600a9",
+      "Title": "Axis Kağıthane AVM",
+      "Slug": "/axis",
+      "Distance": 5426.8724248234885,
+      "IsSelected": false,
+      "Address": "Axis Alışveriş Merkezi, Merkez Mah. Cendere Cad. No:28 Kat:3 No:120 Kağıthane ",
+      "Latitude": "41.0856",
+      "Longitude": "28.9817",
+      "CinemaBranchNo": "0094",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000081"
+    },
+    {
+      "Id": "800aaace-fa6c-4b68-89df-759fae86501c",
+      "Title": "Forum Mersin",
+      "Slug": "/forum-mersin",
+      "Distance": 5426.947596052935,
+      "IsSelected": false,
+      "Address": "Forum Avm, Güvenevler / 20 Mah. No.1 Kat. 3/ S33",
+      "Latitude": "36.7852",
+      "Longitude": "34.588",
+      "CinemaBranchNo": "0050",
+      "IsFavorite": false,
+      "SiteGroupId": "2fb27a14-b291-42a4-90f6-1c48bf1661bd",
+      "Technologies": [],
+      "City": "Mersin",
+      "VistaCinemaId": "0000000032"
+    },
+    {
+      "Id": "9792f1fa-6357-4bb3-9a88-3bbae4e2caa2",
+      "Title": "Zorlu Center",
+      "Slug": "/zorlu-center",
+      "Distance": 5427.167363761679,
+      "IsSelected": false,
+      "Address": "Zorlu Center AVM Beşiktaş / İstanbul",
+      "Latitude": "41.0677",
+      "Longitude": "29.0153",
+      "CinemaBranchNo": "0061",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000064"
+    },
+    {
+      "Id": "287f6f30-fe5e-4717-8571-ff2385a25cf5",
+      "Title": "Kanyon",
+      "Slug": "/kanyon",
+      "Distance": 5427.79220793303,
+      "IsSelected": false,
+      "Address": "Kanyon AVM Büyükdere Cad. No. 185 Levent",
+      "Latitude": "41.0781",
+      "Longitude": "29.0105",
+      "CinemaBranchNo": "0005",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "82894b47-8bdc-cb67-1f9a-08d4a280f0a6",
+          "Title": "ScreenX",
+          "Identifier": "screenx"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000040"
+    },
+    {
+      "Id": "a6049b3e-f3a0-48fb-a522-b7be6c6ac804",
+      "Title": "Vadistanbul",
+      "Slug": "/vadistanbul",
+      "Distance": 5428.841958884803,
+      "IsSelected": false,
+      "Address": "Vadi İstanbul/Ayazağa/Sarıyer",
+      "Latitude": "41.1048",
+      "Longitude": "28.9879",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "82894b47-8bdc-cb67-1f9a-08d4a280f0a6",
+          "Title": "ScreenX",
+          "Identifier": "screenx"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000100"
+    },
+    {
+      "Id": "a9a43c17-49a2-41e2-afa3-fbf63416671d",
+      "Title": "Akyaka Park",
+      "Slug": "/akyaka-park",
+      "Distance": 5429.487859893448,
+      "IsSelected": false,
+      "Address": "Akyaka Park AVM, Saray Mh. Dr.Adnan Büyükdeniz Cad No:7/1 Kapi No: 329 Ümraniye/Istanbul",
+      "Latitude": "41.034084",
+      "Longitude": "29.110766",
+      "CinemaBranchNo": "0115",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [],
+      "City": "Istanbul/Anadolu",
+      "VistaCinemaId": "0000000092"
+    },
+    {
+      "Id": "21236f4f-46ab-4294-a7b9-855200e67d04",
+      "Title": "Metrogarden",
+      "Slug": "/metrogarden",
+      "Distance": 5431.623762792435,
+      "IsSelected": false,
+      "Address": "Aşağı Dudullu Mh., Alemdağ Cd No:940, Ümraniye",
+      "Latitude": "41.0154",
+      "Longitude": "29.1792",
+      "CinemaBranchNo": "0090",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000077"
+    },
+    {
+      "Id": "ce46e90d-3292-4eca-9491-052e2c912932",
+      "Title": "İstinyePark (İstanbul)",
+      "Slug": "/istinyepark",
+      "Distance": 5431.739630137766,
+      "IsSelected": false,
+      "Address": "İSTİNYEPARK AVM İSTİNYE BAYIRI CAD. İSTİNYE-SARIYER",
+      "Latitude": "41.11",
+      "Longitude": "29.0333",
+      "CinemaBranchNo": "0002",
+      "IsFavorite": false,
+      "SiteGroupId": "de0a4f1b-fd81-444b-b7dd-e157fc80e6fa",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        },
+        {
+          "Id": "33c2763d-1a48-c5cd-8210-08d2a25d135d",
+          "Title": "4DX",
+          "Identifier": "4dx"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul/Avrupa",
+      "VistaCinemaId": "0000000037"
+    },
+    {
+      "Id": "8b0a6e24-6f17-4e36-adc8-ab672ad17e07",
+      "Title": "Viaport",
+      "Slug": "/viaport",
+      "Distance": 5432.912353269473,
+      "IsSelected": false,
+      "Address": "Yenişehir Mah. Dedepaşa Cad. No:19 Via Port - Pendik",
+      "Latitude": "40.9368",
+      "Longitude": "29.3247",
+      "CinemaBranchNo": "0092",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [],
+      "City": "İstanbul/Anadolu",
+      "VistaCinemaId": "0000000079"
+    },
+    {
+      "Id": "c61d55f5-7819-cf11-c8e3-08d74321b487",
+      "Title": "Acarkent Coliseum",
+      "Slug": "/acarkent-coliseum",
+      "Distance": 5437.280187349576,
+      "IsSelected": false,
+      "Address": "Acarkent Sitesi 3. Kısım, 9. Cadde No:2, 34820 Beykoz/İstanbul",
+      "Latitude": "41.1112",
+      "Longitude": "29.1337",
+      "IsFavorite": false,
+      "SiteGroupId": "1feddb87-c9e6-42bb-aec7-b040dc501ff6",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "İstanbul",
+      "VistaCinemaId": "0000000117"
+    },
+    {
+      "Id": "108db97a-f9cb-4e96-b3c7-3f0c29f37ad0",
+      "Title": "41 Izmit Burda",
+      "Slug": "/41-burda",
+      "Distance": 5451.940353343199,
+      "IsSelected": false,
+      "Address": "41 Burda, Sanayi Mah. Ömer Türkçakal Bulvarı No: 7, 41040 İzmit, Kocaeli",
+      "Latitude": "40.7564",
+      "Longitude": "29.9432",
+      "CinemaBranchNo": "0106",
+      "IsFavorite": false,
+      "SiteGroupId": "6309ee07-5031-47d9-a8fd-db409a8ed77d",
+      "Technologies": [],
+      "City": "Kocaeli",
+      "VistaCinemaId": "0000000090"
+    },
+    {
+      "Id": "b4cc9b03-e810-45ec-8dda-69168bbb8956",
+      "Title": "Tarsu",
+      "Slug": "/tarsu",
+      "Distance": 5458.102849582152,
+      "IsSelected": false,
+      "Address": "TARSU AVM Adana bulvarı, Fevzi Çakmak mahallesi Kapı No:57 D:109 TARSUS-MERSİN",
+      "Latitude": "36.9202",
+      "Longitude": "34.9045",
+      "CinemaBranchNo": "0051",
+      "IsFavorite": false,
+      "SiteGroupId": "2fb27a14-b291-42a4-90f6-1c48bf1661bd",
+      "Technologies": [],
+      "City": "Mersin",
+      "VistaCinemaId": "0000000060"
+    },
+    {
+      "Id": "6863303e-f5d1-4e9b-b930-3c8803a2af47",
+      "Title": "Serdivan",
+      "Slug": "/serdivan",
+      "Distance": 5477.046534323876,
+      "IsSelected": false,
+      "Address": "Serdivan AVM Arabacı Alanı Mah. Mert Sok. No:25 Serdivan",
+      "Latitude": "40.7735",
+      "Longitude": "30.3658",
+      "CinemaBranchNo": "0036",
+      "IsFavorite": false,
+      "SiteGroupId": "1274474a-5625-4e76-90dd-259efc8b266d",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Sakarya",
+      "VistaCinemaId": "0000000059"
+    },
+    {
+      "Id": "4cc22fc2-b769-43cf-8ec9-7faada14602b",
+      "Title": "M1 Adana AVM",
+      "Slug": "/m1-adana-avm",
+      "Distance": 5488.115890728752,
+      "IsSelected": false,
+      "Address": "M1 Merkez Avm No: 5 Seyhan / ADANA",
+      "Latitude": "37.019",
+      "Longitude": "35.2429",
+      "CinemaBranchNo": "0035",
+      "IsFavorite": false,
+      "SiteGroupId": "2e56cf06-517b-4e1b-99eb-e7d098676cc3",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Adana",
+      "VistaCinemaId": "0000000002"
+    },
+    {
+      "Id": "13a35d37-535f-4d19-85cd-3bdbf3d40992",
+      "Title": "14 Bolu Burda",
+      "Slug": "/14-burda",
+      "Distance": 5541.970522045351,
+      "IsSelected": false,
+      "Address": "14 BURDA, Paşaköy Mah. D-100 Karayolu Cad. No: 8-16, 14100, Bolu",
+      "Latitude": "40.7321",
+      "Longitude": "31.563",
+      "CinemaBranchNo": "0100",
+      "IsFavorite": false,
+      "SiteGroupId": "8b268b4e-07c5-43f8-b3df-b725d453851d",
+      "Technologies": [],
+      "City": "Bolu",
+      "VistaCinemaId": "0000000084"
+    },
+    {
+      "Id": "3a5c8054-d544-4fff-b90c-771d3607695a",
+      "Title": "Metromall",
+      "Slug": "/metromall",
+      "Distance": 5543.907927603086,
+      "IsSelected": false,
+      "Address": "Tunahan Mahallesi, Dumlupınar 30 Ağustos Cd. No:2, 06824 Etimesgut/Ankara",
+      "Latitude": "39.9834",
+      "Longitude": "32.6106",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000101"
+    },
+    {
+      "Id": "37678529-b701-4c1e-b6d9-1b8ef1c4346d",
+      "Title": "Panora",
+      "Slug": "/panora",
+      "Distance": 5546.677554324603,
+      "IsSelected": false,
+      "Address": "Panora AVM Turan Güneş Bulvarı No: 182/212 Çankaya",
+      "Latitude": "39.8478",
+      "Longitude": "32.833",
+      "CinemaBranchNo": "0028",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [
+        {
+          "Id": "33c2763d-1a48-c5cd-8210-08d2a25d135d",
+          "Title": "4DX",
+          "Identifier": "4dx"
+        },
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000054"
+    },
+    {
+      "Id": "f2ba4c0c-b094-479e-95e4-55957762571d",
+      "Title": "Cepa",
+      "Slug": "/cepa",
+      "Distance": 5548.307412365944,
+      "IsSelected": false,
+      "Address": "CEPA AVM ESKİŞEHİR YOLU 7. KM ODTÜ KARŞISI SÖĞÜTÖZÜ ANKARA",
+      "Latitude": "39.9103",
+      "Longitude": "32.7789",
+      "CinemaBranchNo": "0023",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000020"
+    },
+    {
+      "Id": "15d75263-6078-490c-9cb1-75c3eb99a07d",
+      "Title": "Atlantis Batıkent",
+      "Slug": "/atlantis",
+      "Distance": 5549.269170035115,
+      "IsSelected": false,
+      "Address": "Atlantis Alışveriş ve Eğlence Merkezi, Başkent Bulvarı No:224, Batıkent-Ankara",
+      "Latitude": "39.97",
+      "Longitude": "32.7171",
+      "CinemaBranchNo": "0025",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000011"
+    },
+    {
+      "Id": "9799e6ae-42b5-4ceb-b917-a506159c9337",
+      "Title": "Armada",
+      "Slug": "/armada",
+      "Distance": 5550.3419621588355,
+      "IsSelected": false,
+      "Address": "Armada AVM Eskişehir yolu 06520 Söğütözü / ANKARA",
+      "Latitude": "39.9124",
+      "Longitude": "32.8098",
+      "CinemaBranchNo": "0026",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000008"
+    },
+    {
+      "Id": "868ba69e-f55d-4b18-9e50-5bb9320c5010",
+      "Title": "Atakule",
+      "Slug": "/atakule",
+      "Distance": 5551.081611074959,
+      "IsSelected": false,
+      "Address": "Çankaya Caddesi No:1 Atakule 06690, Ankara",
+      "Latitude": "39.886597",
+      "Longitude": "32.855447",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [
+        {
+          "Id": "49c9c40f-3ad5-cbe6-bc2a-08d5302afffa",
+          "Title": "Tempur Sinema",
+          "Identifier": "tempur"
+        },
+        {
+          "Id": "a59ed622-6980-c3d7-51dd-08d6714859c8",
+          "Title": "Skybox",
+          "Identifier": "skybox"
+        },
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        },
+        {
+          "Id": "ebbaf697-d8a2-ce66-c92b-08d7370870d6",
+          "Title": "Premium Cinema",
+          "Identifier": "premium-cinema"
+        },
+        {
+          "Id": "b1eb88d7-ae9d-42be-a467-a5b7e5eb2bf1",
+          "Title": "Sky Auditorium",
+          "Identifier": "sky-auditorium"
+        }
+      ],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000112"
+    },
+    {
+      "Id": "55b0934d-150d-4b0e-93f9-b905473d6de2",
+      "Title": "Podium Ankara",
+      "Slug": "/ankara-podium",
+      "Distance": 5551.872920093898,
+      "IsSelected": false,
+      "Address": "Podium AVM, Mehmet Akif Ersoy Mah. Bağdat Cad. No:60/B Yenimahalle/ Ankara",
+      "Latitude": "39.9622",
+      "Longitude": "32.7704",
+      "CinemaBranchNo": "0099",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000083"
+    },
+    {
+      "Id": "4cab6294-010f-4366-b6bf-6394acb6fc56",
+      "Title": "ANKAmall",
+      "Slug": "/ankamall",
+      "Distance": 5554.715076746086,
+      "IsSelected": false,
+      "Address": "ANKAmall No:2/242 06330 Akköprü – Ankara",
+      "Latitude": "39.9506",
+      "Longitude": "32.8325",
+      "CinemaBranchNo": "0022",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [
+        {
+          "Id": "a77fb246-7be0-c33a-c84b-08d2a25cd20a",
+          "Title": "IMAX",
+          "Identifier": "imax"
+        }
+      ],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000004"
+    },
+    {
+      "Id": "a057f935-50a2-4a16-87ad-f8a3f5c3d3b4",
+      "Title": "Antares AVM",
+      "Slug": "/antares",
+      "Distance": 5555.5596912809815,
+      "IsSelected": false,
+      "Address": "Antares AVM, Halil Sezai Erkut Cad. No:121, Kasalar Mevkii, Etlik/ Ankara",
+      "Latitude": "39.9699",
+      "Longitude": "32.8214",
+      "CinemaBranchNo": "0024",
+      "IsFavorite": false,
+      "SiteGroupId": "fc83ece4-3463-47ec-867b-14dcb46f8dba",
+      "Technologies": [],
+      "City": "Ankara",
+      "VistaCinemaId": "0000000006"
+    },
+    {
+      "Id": "3ef738f9-1c3e-4ce0-9438-c09e1c48dcea",
+      "Title": "Osmaniye",
+      "Slug": "/osmaniye",
+      "Distance": 5562.10295803102,
+      "IsSelected": false,
+      "Address": "PARK 328 AVM Adnan Menderes Bulvarı Şair Abay Kunanbay Caddesi 67.Sokak No:3 OSMANİYE ",
+      "Latitude": "37.0843",
+      "Longitude": "36.2604",
+      "CinemaBranchNo": "0053",
+      "IsFavorite": false,
+      "SiteGroupId": "1b3cd5c9-772e-4930-8abe-a9507712420a",
+      "Technologies": [],
+      "City": "Osmaniye",
+      "VistaCinemaId": "0000000068"
+    },
+    {
+      "Id": "e5a54b72-a39d-465a-ad3e-958c61007711",
+      "Title": "Podium Kırıkkale",
+      "Slug": "/podium-kirikkale",
+      "Distance": 5586.920169331973,
+      "IsSelected": false,
+      "Address": "BAĞDAT CAD. ERENLER MAH. NO:6 YAHŞİHAN KIRIKKALE",
+      "Latitude": "39.8557",
+      "Longitude": "33.4825",
+      "CinemaBranchNo": "0077",
+      "IsFavorite": false,
+      "SiteGroupId": "0a194dde-3c2e-4095-9578-d48c8a293dd4",
+      "Technologies": [],
+      "City": "Kırıkkale",
+      "VistaCinemaId": "0000000072"
+    },
+    {
+      "Id": "fe031e5c-201e-4f0e-b1bb-eaa919d5e401",
+      "Title": "Forum Kayseri",
+      "Slug": "/forum-kayseri",
+      "Distance": 5629.580894657559,
+      "IsSelected": false,
+      "Address": "Hunat Mah. Sivas Cad. 24/1 SF.L26 Kat:2 Melik Gazi – Kayseri",
+      "Latitude": "38.7392",
+      "Longitude": "35.4865",
+      "CinemaBranchNo": "0046",
+      "IsFavorite": false,
+      "SiteGroupId": "8778adea-509f-4d01-8e7a-5d5c190d328d",
+      "Technologies": [],
+      "City": "Kayseri",
+      "VistaCinemaId": "0000000031"
+    },
+    {
+      "Id": "e416a779-fbf3-49e6-86ed-9df2bb5e739a",
+      "Title": "Kayseri Park",
+      "Slug": "/kayseri-park",
+      "Distance": 5630.838044647077,
+      "IsSelected": false,
+      "Address": "Alparslan M. Eşref Bitlis Bulvarı 10/ 145",
+      "Latitude": "38.7276",
+      "Longitude": "35.5188",
+      "CinemaBranchNo": "0045",
+      "IsFavorite": false,
+      "SiteGroupId": "8778adea-509f-4d01-8e7a-5d5c190d328d",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Kayseri",
+      "VistaCinemaId": "0000000041"
+    },
+    {
+      "Id": "45d1403a-ef36-48e3-bbd9-22200b0edf7b",
+      "Title": "Forum Gaziantep",
+      "Slug": "/forum-gaziantep",
+      "Distance": 5638.672754411426,
+      "IsSelected": false,
+      "Address": "Yaprak Mahallesi, İstasyon Caddesi, Forum Gazıantep Alışveriş Merkezi, Şehitkamil/ Gaziantep",
+      "Latitude": "37.0705",
+      "Longitude": "37.3813",
+      "CinemaBranchNo": "0063",
+      "IsFavorite": false,
+      "SiteGroupId": "e1e78ead-3a87-455d-b392-5d183689b378",
+      "Technologies": [],
+      "City": "Gaziantep",
+      "VistaCinemaId": "0000000029"
+    },
+    {
+      "Id": "417dc726-0e28-4321-a095-dc2b604c9ee2",
+      "Title": "Piazza Kahramanmaraş",
+      "Slug": "/piazza-kahramanmaras",
+      "Distance": 5641.704156175186,
+      "IsSelected": false,
+      "Address": "Şazi Bey Mah. Haydar Aliyev Bulvarı No:3 KAHRAMANMARAŞ",
+      "Latitude": "37.57",
+      "Longitude": "36.9226",
+      "CinemaBranchNo": "0057",
+      "IsFavorite": false,
+      "SiteGroupId": "57c3add8-4e14-4e1f-8327-cbcfee75ec5f",
+      "Technologies": [
+        {
+          "Id": "f89f0b2c-e6b5-cc5d-9343-08d558670f40",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Kahramanmaraş",
+      "VistaCinemaId": "0000000038"
+    },
+    {
+      "Id": "761f03a9-2c8c-408c-870c-64de288333fa",
+      "Title": "Çorum",
+      "Slug": "/corum",
+      "Distance": 5730.2874386990825,
+      "IsSelected": false,
+      "Address": " Çepni, Kerebi Gazi 1. Sk. No:7, 19040 Çorum Merkez/ÇORUM",
+      "Latitude": "40.5458",
+      "Longitude": "34.9498",
+      "IsFavorite": false,
+      "SiteGroupId": "a2e3c7b6-926c-4b69-880f-cda56a5bfdb3",
+      "Technologies": [],
+      "City": "ÇORUM",
+      "VistaCinemaId": "0000000096"
+    },
+    {
+      "Id": "f3ef5ccb-e10b-4c5e-a792-6f4f7738d95d",
+      "Title": "Şanlıurfa Piazza",
+      "Slug": "/sanliurfa-piazza",
+      "Distance": 5742.9995565570225,
+      "IsSelected": false,
+      "Address": "Karakoyunlu Mah. 11 Nisan Fuar Caddesi Şanlıurfa AVM No:42 / ZK-005 Merkez",
+      "Latitude": "37.158",
+      "Longitude": "38.7802",
+      "CinemaBranchNo": "0062",
+      "IsFavorite": false,
+      "SiteGroupId": "2d75e324-90b2-4ba2-bac7-60f3ce4b7691",
+      "Technologies": [],
+      "City": "Şanlıurfa",
+      "VistaCinemaId": "0000000058"
+    },
+    {
+      "Id": "c525c5a6-c44b-4dec-8307-2d519c1ca196",
+      "Title": "Piazza Samsun",
+      "Slug": "/piazza-samsun",
+      "Distance": 5872.451962772522,
+      "IsSelected": false,
+      "Address": "Çarşamba Cad. No: 52 Eski Otogar Mevkii Sanayi Sitesi Yanı / Samsun",
+      "Latitude": "41.2762",
+      "Longitude": "36.3557",
+      "CinemaBranchNo": "0058",
+      "IsFavorite": false,
+      "SiteGroupId": "de40e499-1256-41ae-88c1-b540771ad048",
+      "Technologies": [],
+      "City": "Samsun",
+      "VistaCinemaId": "0000000056"
+    },
+    {
+      "Id": "e6462c4c-c4b8-4fcf-88ef-cf1739d6bbe1",
+      "Title": "Yeşilyurt",
+      "Slug": "/yesilyurt",
+      "Distance": 5872.547226941203,
+      "IsSelected": false,
+      "Address": "YEŞİLYURT AVM ATATÜRK BUL.DENİZEVLERİ MH. NO:154-4 ATAKUM-SAMSUN",
+      "Latitude": "41.3307",
+      "Longitude": "36.2921",
+      "CinemaBranchNo": "0054",
+      "IsFavorite": false,
+      "SiteGroupId": "de40e499-1256-41ae-88c1-b540771ad048",
+      "Technologies": [],
+      "City": "Samsun",
+      "VistaCinemaId": "0000000057"
+    },
+    {
+      "Id": "696181aa-e026-4112-8105-1f0f6c99a59e",
+      "Title": "Diyarbakir Ceylan Karavil Park",
+      "Slug": "/diyarbakir-ceylan",
+      "Distance": 5896.005869047975,
+      "IsSelected": false,
+      "Address": "PEYAS MAH. URFA YOLU ÜZERİ NO:130 KAYAPINAR DİYARBAKIR ",
+      "Latitude": "37.9144",
+      "Longitude": "40.2306",
+      "CinemaBranchNo": "0078",
+      "IsFavorite": false,
+      "SiteGroupId": "35d15470-cb07-4624-8055-ed8b4658d87c",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Diyarbakır",
+      "VistaCinemaId": "0000000073"
+    },
+    {
+      "Id": "5a879a56-1dbc-40f3-a8c8-999f3cb10907",
+      "Title": "Forum Trabzon",
+      "Slug": "/forum-trabzon",
+      "Distance": 6071.043421956905,
+      "IsSelected": false,
+      "Address": "Devlet Sahil Yolu Cad. 100.Yıl Parkı Yanı",
+      "Latitude": "40.9996",
+      "Longitude": "39.7592",
+      "CinemaBranchNo": "0056",
+      "IsFavorite": false,
+      "SiteGroupId": "ef61352e-4795-42e5-9179-2303152d9d5f",
+      "Technologies": [],
+      "City": "Trabzon",
+      "VistaCinemaId": "0000000033"
+    },
+    {
+      "Id": "61342970-03d3-45f1-a0d8-f99954d633ae",
+      "Title": "Erzurum MNG",
+      "Slug": "/erzurum-mng",
+      "Distance": 6098.537379535813,
+      "IsSelected": false,
+      "Address": "LALAPAŞA MAH. SOMUNOĞLU CAD.NO:83 İÇ KAPI NO:181 YAKUTİYE",
+      "Latitude": "39.9114",
+      "Longitude": "41.2531",
+      "IsFavorite": false,
+      "SiteGroupId": "285d00b7-d58a-41e4-b24d-4d9655748ab9",
+      "Technologies": [
+        {
+          "Id": "dbf7e2dc-ff3f-c679-566e-08d44105085f",
+          "Title": "GOLD CLASS",
+          "Identifier": "goldclass"
+        }
+      ],
+      "City": "Erzurum",
+      "VistaCinemaId": "0000000102"
+    },
+    {
+      "Id": "1a642855-30ab-4cdc-a9cd-8c7e056af783",
+      "Title": "Van",
+      "Slug": "/van",
+      "Distance": 6160.058951457867,
+      "IsSelected": false,
+      "Address": "VAN AVM, Ferhat mah. Cumhuriyet Bulvarı Eski Belediye Garajı, No:147 İpekyolu/ Van",
+      "Latitude": "38.492",
+      "Longitude": "43.3927",
+      "CinemaBranchNo": "0104",
+      "IsFavorite": false,
+      "SiteGroupId": "0271b112-0b39-4a05-a9e4-c1a6fbf35b22",
+      "Technologies": [],
+      "City": "Van",
+      "VistaCinemaId": "0000000087"
+    }
+  ]
+}
