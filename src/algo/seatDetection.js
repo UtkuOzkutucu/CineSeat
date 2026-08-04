@@ -5,17 +5,17 @@
  * null (aisle/gap — a hard break) or a seat { rowIndex, colIndex, state,
  * selectable }.
  *
- *   1. Build a per-hall desirability weighting (middle-back = best).
+ *   1. Score every position by its distance from the hall's ideal spot.
  *   2. Slide a window of N seats across every run of adjacent free seats.
- *   3. Score each window, then normalise against the best the hall can offer.
+ *   3. Normalise against the best the hall could offer.
  *   4. Return the top non-overlapping candidates, best first.
  *
- * Hall geometry varies enormously — 55 seats / 7 rows / 9 wide up to 456 seats /
- * 15 rows / 39 wide, an 8x spread. The original version was tuned against a
- * single 256-seat fixture and used absolute scores, which quietly penalised
- * small halls twice over: their rows are narrow (so almost every seat reads as
- * an "edge" seat) and shallow (so the ideal depth can fall between rows).
- * Everything here is therefore expressed relative to the hall it is scoring.
+ * A seat's score is its depth quality multiplied by its horizontal quality.
+ * They are multiplied rather than added so each axis owns its own range: the
+ * front row can be worth nothing at all while horizontal position still orders
+ * seats independently within every other row. Sharing one additive budget made
+ * that impossible — pushing the front row down to nothing left nothing over for
+ * horizontal, and a dead-centre front-row seat still scored 60%.
  */
 
 /** Seats physically in the hall, ignoring the blank spacer rows used as aisles. */
@@ -24,55 +24,101 @@ function seatedRows(rows) {
 }
 
 /**
- * How much a seat at the far edge of a row loses relative to a centre seat.
- *
- * In a 39-wide IMAX row the outermost seat really is a bad seat. In a 9-wide
- * hall the outermost seat is barely off-centre, so applying the same penalty
- * would make every seat in a small hall look mediocre.
+ * Fraction of the way back from the screen: 0 = front row, 1 = back row.
+ * Three quarters back is the sweet spot — in a 15-row hall that is rows K/L.
  */
-function edgePenaltyFor(rowWidth) {
-  const NARROW = 10;
-  const WIDE = 30;
-  const MIN_PENALTY = 0.25;
-  const MAX_PENALTY = 0.6;
-  if (rowWidth <= NARROW) return MIN_PENALTY;
-  if (rowWidth >= WIDE) return MAX_PENALTY;
-  const t = (rowWidth - NARROW) / (WIDE - NARROW);
-  return MIN_PENALTY + t * (MAX_PENALTY - MIN_PENALTY);
+const IDEAL_DEPTH = 0.75;
+
+/** Falloff toward the screen. Puts row H at 74% and row G at 64%. */
+const FRONT_EXP = 1.2;
+
+/** Falloff toward the back wall: gentle just behind the ideal, steeper at the wall. */
+const BACK_EXP = 2;
+
+/**
+ * How much the back row loses, by hall size.
+ *
+ * The back row of a 7-row hall is barely far from the screen; the back row of a
+ * 15-row hall genuinely is. Same reasoning as FULL_OFFSET_SEATS below — what
+ * matters is absolute distance, not the fraction of the hall.
+ */
+const SMALL_ROWS = 7;
+const BIG_ROWS = 15;
+const BACK_DROP_SMALL = 0.2; // → back row ≈ 80%
+const BACK_DROP_BIG = 0.4; // → back row = 60%
+
+/**
+ * How far off-centre, in seats, before the viewing angle is as bad as it gets.
+ *
+ * Deliberately an absolute count rather than a fraction of the row. Dividing by
+ * each hall's own half-width would make the outermost seat of a 9-wide hall
+ * score exactly as badly as the outermost seat of a 39-wide IMAX — but four
+ * seats from centre is nearly central, and nineteen is not. Halls of roughly
+ * this half-width and wider reach the full penalty at their edges; narrower
+ * ones never do, which is correct.
+ */
+const FULL_OFFSET_SEATS = 12;
+
+/** What a seat at the full offset keeps. */
+const EDGE_DROP = 0.55;
+
+function backDropFor(rowCount) {
+  const t = clamp((rowCount - SMALL_ROWS) / (BIG_ROWS - SMALL_ROWS), 0, 1);
+  return BACK_DROP_SMALL + t * (BACK_DROP_BIG - BACK_DROP_SMALL);
 }
 
 /**
- * Desirability weight for a seat position.
+ * Depth quality, 0..1, peaking at IDEAL_DEPTH.
+ *
+ * The front branch has no drop coefficient, so at p = 0 it evaluates to exactly
+ * zero: the entire front row is worth nothing, which is what makes the front
+ * corner read 0% rather than merely small.
+ */
+function depthScore(p, rowCount) {
+  if (p <= IDEAL_DEPTH) {
+    return 1 - Math.pow((IDEAL_DEPTH - p) / IDEAL_DEPTH, FRONT_EXP);
+  }
+  const past = (p - IDEAL_DEPTH) / (1 - IDEAL_DEPTH);
+  return 1 - backDropFor(rowCount) * Math.pow(past, BACK_EXP);
+}
+
+/** Horizontal quality, 0..1, peaking dead centre. */
+function horizScore(offset) {
+  const d = Math.min(Math.abs(offset) / FULL_OFFSET_SEATS, 1);
+  return 1 - EDGE_DROP * d * d;
+}
+
+/**
+ * Desirability of a seat position; higher is better.
  *
  * Depth is measured over seated rows by ordinal position, not by the raw data-r
  * attribute: halls contain spacer rows that consume a row index without holding
  * seats (e.g. G F E D · C B A), which would otherwise shift the ideal depth.
  *
- * Depth 0 = back row, 1 = front row (nearest the screen). Verified consistent
- * across sampled halls: data-r=0 is always the back.
+ * `colPos` is the seat's index in the row array, which is its true position in
+ * the hall — not its printed seat number. Rows are often indented: in the
+ * 13x25 fixture, row I holds seats numbered 1..18 in grid positions 5..22, so
+ * "koltuk 7" there is very nearly centre. Centring on the printed number would
+ * put every indented row off to one side.
+ *
+ * @param {number} rowCount seated rows in the hall
+ * @param {number} colCount width of the widest seated row
  */
-function makeZoneWeight(rowCount) {
-  // Peak just behind the middle — clearly in the back half, but not against the
-  // back wall. Widen the bump in shallow halls so the peak can't land in the gap
-  // between two rows.
-  const PEAK = 0.3;
-  const spread = Math.max(0.22, 0.6 / Math.max(rowCount - 1, 1));
+function makeSeatWeight(rowCount, colCount) {
+  const xCenter = (colCount - 1) / 2;
+  const depthSpan = Math.max(rowCount - 1, 1);
 
-  return (depthIndex, colPos, rowWidth) => {
-    const depth = depthIndex / Math.max(rowCount - 1, 1);
-    const rowWeight = gaussianBump(depth, PEAK, spread);
-
-    const centerCol = (rowWidth - 1) / 2;
-    const horizDist = Math.abs(colPos - centerCol) / Math.max(centerCol, 1);
-    const colWeight = 1 - Math.min(horizDist, 1) * edgePenaltyFor(rowWidth);
-
-    return rowWeight * 0.65 + colWeight * 0.35;
-  };
+  return (yFromScreen, colPos) =>
+    depthScore(yFromScreen / depthSpan, rowCount) * horizScore(colPos - xCenter);
 }
 
-function gaussianBump(x, peak, spread) {
-  const d = (x - peak) / spread;
-  return Math.exp(-0.5 * d * d);
+function clamp(n, lo, hi) {
+  return Math.min(Math.max(n, lo), hi);
+}
+
+/** Rows arrive back-first, so this flips an index into distance from the screen. */
+function depthFromScreen(index, rowCount) {
+  return rowCount - 1 - index;
 }
 
 /**
@@ -110,17 +156,19 @@ function findBookableRuns(cells) {
  */
 function bestPossibleScore(rows, ticketCount) {
   const seated = seatedRows(rows);
-  const zoneWeight = makeZoneWeight(seated.length);
+  const colCount = Math.max(...seated.map((r) => r.cells.length));
+  const seatWeight = makeSeatWeight(seated.length, colCount);
   let best = 0;
 
-  seated.forEach((row, depthIndex) => {
+  seated.forEach((row, index) => {
+    const depth = depthFromScreen(index, seated.length);
     const width = row.cells.length;
     // Ignore availability and gaps: this is the geometric ceiling, so scan the
     // widest contiguous stretch the row physically has.
     for (let start = 0; start + ticketCount <= width; start++) {
       let sum = 0;
       for (let i = 0; i < ticketCount; i++) {
-        sum += zoneWeight(depthIndex, start + i, width);
+        sum += seatWeight(depth, start + i);
       }
       best = Math.max(best, sum / ticketCount);
     }
@@ -144,12 +192,13 @@ export function findBestSeats(seatMap, ticketCount, topN = 5) {
   const seated = seatedRows(rows);
   if (seated.length === 0) return [];
 
-  const zoneWeight = makeZoneWeight(seated.length);
+  const colCount = Math.max(...seated.map((r) => r.cells.length));
+  const seatWeight = makeSeatWeight(seated.length, colCount);
   const ceiling = bestPossibleScore(rows, ticketCount) || 1;
   const candidates = [];
 
-  seated.forEach((row, depthIndex) => {
-    const rowWidth = row.cells.length;
+  seated.forEach((row, index) => {
+    const depth = depthFromScreen(index, seated.length);
 
     for (const run of findBookableRuns(row.cells)) {
       if (run.length < ticketCount) continue;
@@ -158,7 +207,7 @@ export function findBestSeats(seatMap, ticketCount, topN = 5) {
         const window = run.slice(start, start + ticketCount);
 
         let sum = 0;
-        for (const { pos } of window) sum += zoneWeight(depthIndex, pos, rowWidth);
+        for (const { pos } of window) sum += seatWeight(depth, pos);
         const raw = sum / ticketCount;
 
         candidates.push({

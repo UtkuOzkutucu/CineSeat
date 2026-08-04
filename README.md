@@ -96,15 +96,22 @@ HTML öğesinin `id` değerinde gerçek tarih, `data-warning` niteliğinde ise s
 
 ## Koltuk Seçimi Algoritması
 
-Sinema salonlarının boyutları 7×9'dan 15×39'a kadar değişiklik göstermektedir; en küçük salon 55, en büyük salon ise 456 koltukludur. Salon kapasiteleri arasında yaklaşık sekiz katlık bir fark bulunduğundan, ideal koltuğu bulan sıralama algoritması salon boyutuna göre dinamik olarak ölçeklenmektedir:
+Salon kapasiteleri 55 ile 456 koltuk arasında değiştiği için sıralama algoritması salon boyutuna göre dinamik olarak ölçeklenir. Salonun ideal noktası; yatayda **tam orta**, dikeyde ise perdeden itibaren **%75 geridedir**.
 
-- **Derinlik Hesaplaması:** Derinlik (perdeye olan mesafe), yalnızca koltuk bulunan sıralar üzerinden hesaplanır. Hemen her salonda yer alan ara koridor boşlukları, site tarafından numaralandırmada atlandığı için hesaplamaya dahil edilmez.
-- **Kenar Koltuk Puanlaması:** Kenar koltuklara uygulanan eksi puan (ceza), sıranın toplam genişliğine göre orantısal olarak ayarlanır. Bu ceza değeri sabit olsaydı, örneğin 7 koltuklu dar bir sırada neredeyse tüm koltuklar "kenar" kabul edilerek haksız bir puanlama yapılırdı.
-- **Esnek İdeal Aralık:** Toplam sıra sayısının az olduğu küçük salonlarda, ideal izleme mesafesini kapsayan derinlik aralığı otomatik olarak genişletilir.
-- **Puan Normalizasyonu:** Farklı salonlara ait koltuk puanları birbirleriyle kıyaslanmadan önce kendi içlerinde 0 ile 100 arasına çekilerek normalleştirilir.
-- **Kategori Kontrolü:** Uygulama her zaman seçilen bilet kategorisine uygun koltukları önerir (örn. standart bir bilet türü seçiliyken Gold Class koltukları önerilmez).
+Her koltuğun puanı şu şekilde hesaplanır:
+`Puan = Derinlik Kalitesi × Yatay Kalite`
+*(İki değerin toplanmak yerine çarpılması, ön sıra veya en kenarların haksız şekilde yüksek puan almasını engeller. Ön sıra her zaman %0 kabul edilir.)*
 
-*Not: Site yapısı gereği salonun en arka sırası başlangıç noktası (0. indeks) olarak kabul edilir ve harflendirme perdeye doğru azalır.*
+Örnek olarak 15 sıralı bir salonda ortadaki koltukların puan dağılımı şöyledir:
+
+| Sıra | A (perde) | C | E | G | H | J | K | L | N | O (arka) |
+|---|---|---|---|---|---|---|---|---|---|---|
+| Puan | %0 | %23 | %44 | %64 | %74 | %91 | %98 | %100 | %80 | %60 |
+
+- **Gerçek Konum:** Puanlama, koltuğun basılı numarasına değil salon içindeki fiziksel konumuna (sıra girintileri dahil) göre yapılır. Numaralandırmada atlanan ara koridorlar hesaba katılmaz.
+- **Dinamik Ceza Sistemi:** Arka sıra ve kenar uzaklık cezaları salonun büyüklüğüne göre esner. Örneğin, küçük bir salonda arka sıra veya kenarlar, büyük bir salondaki kadar puan kaybettirmez.
+- **Normalizasyon:** Koltuk puanları, o salonun sunabileceği en iyi konuma göre 0-100 aralığına çekilir. Böylece %100 her zaman "o salonun en iyisi" anlamına gelir.
+- **Kategori Kontrolü:** Sadece seçtiğiniz bilet türüne (Örn: Standart, Gold Class) uygun koltuklar öneri havuzuna alınır.
 
 ---
 

@@ -99,6 +99,113 @@ describe('seats the middle-back sweet spot in every hall shape', () => {
   }
 });
 
+describe('the depth × horizontal target', () => {
+  // The agreed shape, in a 15-row hall: front row worth nothing, K/L on top,
+  // H..N all buyable, and a steep collapse below H. These numbers were argued
+  // over directly, so pin them rather than let them drift.
+  const BIG_ROWS = 15;
+  const BIG_WIDTH = 25;
+  const centreOf = (width) => (c) => Math.abs(c.colIndex - (width - 1) / 2) < 1.2;
+  const centreRow = (letter, width) => (c) => c.rowLetter === letter && centreOf(width)(c);
+  const scoreOfRow = (letter, rows = BIG_ROWS, width = BIG_WIDTH) =>
+    bestScore(keepOnly(buildHall(rows, width), centreRow(letter, width)), 2);
+
+  test('aims three quarters of the way back from the screen', () => {
+    for (const [name, rows, width, spacer] of HALLS) {
+      const hall = buildHall(rows, width, { spacerAfter: spacer });
+      const best = findBestSeats(hall, 2, 1)[0];
+      // depthFraction counts from the back, so flip it.
+      const fromScreen = 1 - depthFraction(hall, best);
+      assert.ok(
+        Math.abs(fromScreen - 0.75) <= 0.1,
+        `${name}: aimed ${fromScreen.toFixed(2)} from the screen, wanted ~0.75`,
+      );
+    }
+  });
+
+  test('the front row is worth nothing, corner included', () => {
+    const front = keepOnly(buildHall(BIG_ROWS, BIG_WIDTH), (c) => c.rowLetter === 'A');
+    // Every seat in the row, not just the middle — the corner has to read 0%.
+    for (const s of findBestSeats(front, 2, 5)) {
+      assert.equal(s.score, 0, `front row seat scored ${s.score}`);
+    }
+    assert.equal(scoreOfRow('A'), 0);
+  });
+
+  test('rows H..N are all buyable, above 70%', () => {
+    for (const letter of ['H', 'I', 'J', 'K', 'L', 'M', 'N']) {
+      const score = scoreOfRow(letter);
+      assert.ok(score > 0.7, `row ${letter} scored ${Math.round(score * 100)}%, wanted >70%`);
+    }
+  });
+
+  test('below H it falls away hard', () => {
+    // G 64 · F 54 · E 44 · D 34 · C 23 · B 11 — a steady steep decline, so a
+    // hall with only its front third free never looks acceptable.
+    // Note the arrow: passing scoreOfRow straight to map would hand it the
+    // array index as `rows`.
+    const scores = ['G', 'F', 'E', 'D', 'C', 'B'].map((letter) => scoreOfRow(letter));
+    assert.ok(scores[0] < 0.7, `row G scored ${scores[0]}, should be below the buyable line`);
+    for (let i = 1; i < scores.length; i++) {
+      assert.ok(scores[i] < scores[i - 1] - 0.07, 'each row toward the screen should drop clearly');
+    }
+    assert.ok(scores.at(-1) < 0.2, 'row B should be nearly worthless');
+  });
+
+  test('the back row loses more in a big hall than a small one', () => {
+    // User's rule: big salon ~60%, small salon ~80%. The back row of a 7-row
+    // hall is barely far from the screen; of a 15-row hall it genuinely is.
+    const big = scoreOfRow('O', 15, 25);
+    const small = scoreOfRow('G', 7, 11);
+    assert.ok(Math.abs(big - 0.6) < 0.08, `big hall back row ${big}, wanted ~0.60`);
+    assert.ok(Math.abs(small - 0.82) < 0.08, `small hall back row ${small}, wanted ~0.80`);
+  });
+
+  test('depth outranks horizontal across rows, but still orders within a row', () => {
+    // Multiplying the axes means depth dominates globally — a centre seat too
+    // near the screen loses to an off-centre seat at the right depth.
+    const shallowCentre = scoreOfRow('E');
+    const idealOffCentre = bestScore(
+      keepOnly(
+        buildHall(BIG_ROWS, BIG_WIDTH),
+        (c) => c.rowLetter === 'L' && c.colIndex >= 20 && c.colIndex <= 21,
+      ),
+      2,
+    );
+    assert.ok(idealOffCentre > shallowCentre, 'right depth off-centre should beat wrong depth centred');
+
+    // ...while inside one row, closer to centre still wins.
+    const inRow = (from, to) =>
+      bestScore(
+        keepOnly(
+          buildHall(BIG_ROWS, BIG_WIDTH),
+          (c) => c.rowLetter === 'L' && c.colIndex >= from && c.colIndex <= to,
+        ),
+        2,
+      );
+    assert.ok(inRow(11, 12) > inRow(17, 18), 'centre of a row should beat its edge');
+  });
+
+  test('a narrow hall keeps its edge seats respectable, a wide one does not', () => {
+    // Regression guard. Four seats from centre is nearly central; nineteen is
+    // not. Normalising the horizontal axis by each hall's own width would
+    // collapse both to the same score and quietly rank small halls as badly as
+    // an IMAX whose only free seats are against the wall.
+    const onlyOuterSeats = (rows, width) =>
+      bestScore(keepOnly(buildHall(rows, width), (c) => c.colIndex < 2), 2);
+
+    const narrow = onlyOuterSeats(7, 9);
+    const wide = onlyOuterSeats(15, 39);
+
+    // The gap is what matters here, not the absolute values — those move
+    // whenever the curve is retuned, but a narrow hall must always stay well
+    // ahead of a wide one in the same state.
+    assert.ok(narrow > 0.75, `narrow hall edge seats scored only ${narrow}`);
+    assert.ok(wide < 0.55, `wide hall edge seats scored ${wide}, expected a real penalty`);
+    assert.ok(narrow - wide > 0.35, `gap was only ${(narrow - wide).toFixed(2)}`);
+  });
+});
+
 describe('scores are comparable across hall sizes', () => {
   test('an empty hall of any shape tops out at 1.0', () => {
     for (const [name, rows, width, spacer] of HALLS) {

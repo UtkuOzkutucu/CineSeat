@@ -26,7 +26,12 @@
   --seat-free: #3fae6a;
   --seat-taken: #3a3640;
   --seat-rec: #e8b64c;
-  --seat-blocked: #2a2730;
+  /* Was #2a2730 — all but identical to --seat-taken, separated only by a 1px
+     dashed border that vanishes at 14px seat size, so a half-sold hall read as
+     one undifferentiated dark mass. Lighter and bluer now, so "someone sits
+     here" and "your ticket can't buy this" are told apart at a glance. */
+  --seat-blocked: #4c4a5c;
+  --seat-handicapped: #3d5a80;
 
   --r: 16px;
   --r-sm: 10px;
@@ -562,17 +567,39 @@ select:focus-visible {
   color: var(--card-muted);
 }
 
-/* Scan outcome, colour-coded on the left edge. "Couldn't check" and "not on
-   sale" are deliberately distinct from a poor-but-real result. */
+/*
+ * Scan outcome: a five-step ramp on the left edge plus a matching background
+ * wash, so good and bad separate at a glance across a long list. The ramp moves
+ * in lightness as well as hue so it survives colour-blindness, and the chip
+ * prints the number anyway.
+ *
+ * None of these reuse --accent or --warn: those two already mean "IMAX" and
+ * "+1 gün" on badges in the same view, and a colour must not carry two
+ * meanings. --danger stays reserved for is-error, so a genuinely bad score can
+ * never be mistaken for a failed lookup.
+ */
+.time-chip.is-best {
+  border-left: 4px solid #15803d;
+  background: #dcfce7;
+}
 .time-chip.is-great {
-  border-left: 4px solid var(--seat-free);
+  border-left: 4px solid #4d9e2a;
+  background: #eaf7e2;
 }
 .time-chip.is-ok {
-  border-left: 4px solid var(--accent);
+  border-left: 4px solid #eab308;
+  background: #fef9e3;
 }
 .time-chip.is-poor {
-  border-left: 4px solid var(--warn);
+  border-left: 4px solid #f97316;
+  background: #fdeee1;
 }
+.time-chip.is-bad {
+  border-left: 4px solid #b45309;
+  background: #fbe8d7;
+}
+
+/* No adjacent block right now — but seats free up, so this is a live state. */
 .time-chip.is-none {
   border-left: 4px solid #9ca3af;
 }
@@ -582,9 +609,11 @@ select:focus-visible {
 .time-chip.is-error .chip-meta {
   color: var(--danger);
 }
+/* Nothing on sale for this showtime — dashed and faded, because unlike
+   is-none it is never going to change. */
 .time-chip.is-unavailable {
-  border-left: 4px solid #9ca3af;
-  opacity: 0.65;
+  border-left: 4px dashed #9ca3af;
+  opacity: 0.6;
 }
 
 .next-day {
@@ -861,10 +890,9 @@ select:focus-visible {
 }
 .seat.blocked {
   background: var(--seat-blocked);
-  border: 1px dashed #4a4650;
 }
 .seat.handicapped {
-  background: #3d5a80;
+  background: var(--seat-handicapped);
 }
 .seat.gap {
   background: transparent;
@@ -878,16 +906,18 @@ select:focus-visible {
   box-shadow: 0 0 0 2px rgba(232, 182, 76, 0.55);
 }
 
+/* Sits above the grid, like the real site — so the curve bows away from the
+   seats rather than toward them. */
 .screen-bar {
-  margin: 10px auto 14px;
+  margin: 4px auto 16px;
   max-width: 62%;
   text-align: center;
   font-size: 0.62rem;
   letter-spacing: 0.3em;
   color: var(--ink-dim);
-  padding-top: 4px;
-  border-top: 2px solid var(--line);
-  border-radius: 0 0 50% 50%;
+  padding-bottom: 4px;
+  border-bottom: 2px solid var(--line);
+  border-radius: 50% 50% 0 0;
 }
 .legend {
   display: flex;
@@ -918,7 +948,9 @@ select:focus-visible {
 }
 .dot.blocked {
   background: var(--seat-blocked);
-  border: 1px dashed #4a4650;
+}
+.dot.handicapped {
+  background: var(--seat-handicapped);
 }
 
 .sheet-actions {

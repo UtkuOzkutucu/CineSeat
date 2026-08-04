@@ -382,7 +382,21 @@ function showtimeChip(s) {
     meta = `<span class="chip-meta">${scan.unavailable ? 'satışta değil' : 'kontrol edilemedi'}</span>`;
   } else if (scan) {
     const pct = scan.bestScore == null ? null : Math.round(scan.bestScore * 100);
-    cls = pct == null ? ' is-none' : pct >= 80 ? ' is-great' : pct >= 50 ? ' is-ok' : ' is-poor';
+    // Five bands rather than three: a 20-showtime list is hard to scan
+    // otherwise. The cutoffs are real rows in a big hall — 70 is where a seat
+    // becomes worth buying (row H), 90 is the sweet spot (rows K/L).
+    cls =
+      pct == null
+        ? ' is-none'
+        : pct >= 90
+          ? ' is-best'
+          : pct >= 70
+            ? ' is-great'
+            : pct >= 55
+              ? ' is-ok'
+              : pct >= 35
+                ? ' is-poor'
+                : ' is-bad';
     meta = `<span class="chip-meta">${
       pct == null ? 'yan yana yer yok' : `${esc(scan.bestLabel ?? '')} · %${pct}`
     }</span><span class="chip-free">${scan.available}/${scan.total}</span>`;
@@ -505,6 +519,16 @@ function renderSeats(data, showtime) {
   const rank = new Map();
   suggestions.forEach((s, i) => s.seats.forEach((x) => rank.set(`${x.rowLetter}-${x.seatNumber}`, i)));
 
+  // Shown regardless of how many ticket types there are. On Sinema Günü a
+  // session carries a single type, and the price used to live only inside the
+  // <select> — so it vanished on exactly the cheapest day. The amount still
+  // differs per format that day (2D 160 TL vs 3D 170 TL), so it has to come
+  // from this session's own data.
+  const chosen =
+    (data.ticketTypes ?? []).find((t) => t.code === data.ticketTypeCode) ??
+    (data.ticketTypes ?? [])[0];
+  const price = chosen?.price != null ? `${formatPrice(chosen.price)} TL` : null;
+
   el('seat-body').innerHTML = `
     <div class="answer">
       ${
@@ -515,6 +539,7 @@ function renderSeats(data, showtime) {
       }
       <dl class="facts">
         <div><dt>Boş</dt><dd>${data.available} / ${data.totalSeats}</dd></div>
+        ${price ? `<div><dt>Bilet</dt><dd>${esc(price)}</dd></div>` : ''}
         <div><dt>Salon</dt><dd>${data.rowCount}×${data.maxRowWidth}</dd></div>
         <div><dt>Veri</dt><dd>${data.fromCache ? `${data.ageSeconds} sn önce` : 'az önce'}</dd></div>
       </dl>
@@ -546,13 +571,14 @@ function renderSeats(data, showtime) {
         : ''
     }
 
-    <div class="seat-scroll"><div class="seat-grid" id="seat-grid"></div></div>
     <div class="screen-bar">PERDE</div>
+    <div class="seat-scroll"><div class="seat-grid" id="seat-grid"></div></div>
     <div class="legend">
       <span><i class="dot free"></i>Boş</span>
       <span><i class="dot rec"></i>Önerilen</span>
       <span><i class="dot taken"></i>Dolu</span>
       <span><i class="dot blocked"></i>Bu bilete uygun değil</span>
+      <span><i class="dot handicapped"></i>Engelli koltuğu</span>
     </div>
 
     <div class="sheet-actions">
@@ -580,7 +606,11 @@ function drawGrid(data, rank) {
   const size = Math.max(11, Math.min(24, Math.floor(avail / (data.maxRowWidth + 2)) - 3));
   grid.style.setProperty('--seat', `${size}px`);
 
-  grid.innerHTML = data.rows
+  // The site returns rows back-first (data-r=0 is the back row), but draws the
+  // screen at the top. Reversing here puts the front row directly under the
+  // screen so our map reads the same way round as theirs.
+  grid.innerHTML = [...data.rows]
+    .reverse()
     .map((row) => {
       if (row.isSpacer) return `<div class="srow is-spacer"></div>`;
       const cells = row.cells
@@ -891,6 +921,11 @@ function weekday(iso) {
   if (diff === 0) return 'Bugün';
   if (diff === 1) return 'Yarın';
   return date.toLocaleDateString('tr-TR', { weekday: 'long' });
+}
+
+/** 160 → "160", 172.5 → "172,50" — kuruş only when there are any. */
+function formatPrice(n) {
+  return Number.isInteger(n) ? String(n) : n.toFixed(2).replace('.', ',');
 }
 
 const hint = (t) => `<p class="hint">${esc(t)}</p>`;
