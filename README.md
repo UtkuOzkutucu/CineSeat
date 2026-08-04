@@ -109,7 +109,7 @@ Her koltuğun puanı şu şekilde hesaplanır:
 | Puan | %0 | %23 | %44 | %64 | %74 | %91 | %98 | %100 | %80 | %60 |
 
 - **Gerçek Konum:** Puanlama, koltuğun basılı numarasına değil salon içindeki fiziksel konumuna (sıra girintileri dahil) göre yapılır. Numaralandırmada atlanan ara koridorlar hesaba katılmaz.
-- **Dinamik Ceza Sistemi:** Arka sıra ve kenar uzaklık cezaları salonun büyüklüğüne göre esner. Örneğin, küçük bir salonda arka sıra veya kenarlar, büyük bir salondaki kadar puan kaybettirmez.
+- **Dinamik Ceza Sistemi:** Arka sıra ve kenar uzaklık cezaları salonun büyüklüğüne göre esner. Aynı mesafe her salonda aynı anlama gelmediği içindir bu: ortadan dört koltuk uzakta olmak 11 koltukluk bir salonda neredeyse merkezdeyken, 25 koltukluk bir salonda belirgin şekilde yanda kalmaktır. Bu yüzden ortadan 4-5 koltuk uzaktaki bir yer dar salonda ~%95 alırken geniş salonda ~%83'e, en uçtaki koltuk ise dar salonda %90 iken geniş salonda %15'e iner.
 - **Normalizasyon:** Koltuk puanları, o salonun sunabileceği en iyi konuma göre 0-100 aralığına çekilir. Böylece %100 her zaman "o salonun en iyisi" anlamına gelir.
 - **Kategori Kontrolü:** Sadece seçtiğiniz bilet türüne (Örn: Standart, Gold Class) uygun koltuklar öneri havuzuna alınır.
 

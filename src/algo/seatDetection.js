@@ -53,14 +53,29 @@ const BACK_DROP_BIG = 0.4; // → back row = 60%
  * Deliberately an absolute count rather than a fraction of the row. Dividing by
  * each hall's own half-width would make the outermost seat of a 9-wide hall
  * score exactly as badly as the outermost seat of a 39-wide IMAX — but four
- * seats from centre is nearly central, and nineteen is not. Halls of roughly
- * this half-width and wider reach the full penalty at their edges; narrower
- * ones never do, which is correct.
+ * seats from centre is nearly central, and nineteen is not.
  */
 const FULL_OFFSET_SEATS = 12;
 
-/** What a seat at the full offset keeps. */
-const EDGE_DROP = 0.55;
+/**
+ * How severe the sideways penalty is, interpolated by hall width.
+ *
+ * The same distance means different things in different rooms: four seats
+ * off-centre is nearly central in an 11-wide hall and genuinely off-axis in a
+ * 25-wide one. A single absolute curve has to pick one of those answers and be
+ * wrong about the other — so the reference distance stays fixed while the
+ * curve's severity scales.
+ *
+ * `drop` is what a seat at the full offset loses. A lower `exp` makes the
+ * penalty bite at moderate offsets rather than only against the wall, which is
+ * what wide halls need: their mid-range seats are already well off-axis.
+ */
+const NARROW_COLS = 12;
+const WIDE_COLS = 25;
+const DROP_NARROW = 0.55;
+const DROP_WIDE = 0.85;
+const EXP_NARROW = 2.0;
+const EXP_WIDE = 1.25;
 
 function backDropFor(rowCount) {
   const t = clamp((rowCount - SMALL_ROWS) / (BIG_ROWS - SMALL_ROWS), 0, 1);
@@ -83,9 +98,12 @@ function depthScore(p, rowCount) {
 }
 
 /** Horizontal quality, 0..1, peaking dead centre. */
-function horizScore(offset) {
+function horizScore(offset, colCount) {
+  const wide = clamp((colCount - NARROW_COLS) / (WIDE_COLS - NARROW_COLS), 0, 1);
+  const drop = DROP_NARROW + wide * (DROP_WIDE - DROP_NARROW);
+  const exp = EXP_NARROW + wide * (EXP_WIDE - EXP_NARROW);
   const d = Math.min(Math.abs(offset) / FULL_OFFSET_SEATS, 1);
-  return 1 - EDGE_DROP * d * d;
+  return 1 - drop * Math.pow(d, exp);
 }
 
 /**
@@ -109,7 +127,7 @@ function makeSeatWeight(rowCount, colCount) {
   const depthSpan = Math.max(rowCount - 1, 1);
 
   return (yFromScreen, colPos) =>
-    depthScore(yFromScreen / depthSpan, rowCount) * horizScore(colPos - xCenter);
+    depthScore(yFromScreen / depthSpan, rowCount) * horizScore(colPos - xCenter, colCount);
 }
 
 function clamp(n, lo, hi) {

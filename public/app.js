@@ -51,6 +51,8 @@ async function boot() {
   const settings = await api('/api/settings').catch(() => ({}));
   state.ticketCount = settings.ticketCount ?? 2;
   state.autoScan = settings.autoScan ?? true;
+  // Fresh install has no city stored, so the first launch shows "Tümü";
+  // after that it reopens on whichever city was last selected.
   state.cityFilter = settings.city ?? null;
   el('tc-value').textContent = state.ticketCount;
   el('autoscan-toggle').checked = state.autoScan;

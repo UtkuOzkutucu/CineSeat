@@ -163,16 +163,22 @@ describe('the depth × horizontal target', () => {
 
   test('depth outranks horizontal across rows, but still orders within a row', () => {
     // Multiplying the axes means depth dominates globally — a centre seat too
-    // near the screen loses to an off-centre seat at the right depth.
+    // near the screen loses to a moderately off-centre seat at the right depth.
+    // Compared at a moderate offset on purpose: out at the wall of a wide hall
+    // the sideways penalty is now severe enough that the two nearly tie, and a
+    // test balancing on a 1-point margin asserts luck rather than the property.
     const shallowCentre = scoreOfRow('E');
     const idealOffCentre = bestScore(
       keepOnly(
         buildHall(BIG_ROWS, BIG_WIDTH),
-        (c) => c.rowLetter === 'L' && c.colIndex >= 20 && c.colIndex <= 21,
+        (c) => c.rowLetter === 'L' && c.colIndex >= 17 && c.colIndex <= 18,
       ),
       2,
     );
-    assert.ok(idealOffCentre > shallowCentre, 'right depth off-centre should beat wrong depth centred');
+    assert.ok(
+      idealOffCentre > shallowCentre + 0.1,
+      `right depth off-centre (${idealOffCentre}) should clearly beat wrong depth centred (${shallowCentre})`,
+    );
 
     // ...while inside one row, closer to centre still wins.
     const inRow = (from, to) =>
@@ -184,6 +190,33 @@ describe('the depth × horizontal target', () => {
         2,
       );
     assert.ok(inRow(11, 12) > inRow(17, 18), 'centre of a row should beat its edge');
+  });
+
+  test('the same distance off-centre costs more in a wider hall', () => {
+    // Four or five seats off-centre is nearly central in a narrow room and
+    // genuinely off-axis in a wide one. The reference distance is fixed but the
+    // severity scales with width, which is what lets both be true at once —
+    // a single absolute curve has to pick one answer and be wrong about the
+    // other.
+    const offCentreAtIdealDepth = (width) => {
+      const centre = (width - 1) / 2;
+      const from = Math.round(centre - 4.5);
+      return bestScore(
+        keepOnly(
+          buildHall(13, width),
+          (c) => c.rowLetter === 'J' && c.colIndex >= from && c.colIndex <= from + 1,
+        ),
+        2,
+      );
+    };
+
+    const narrow = offCentreAtIdealDepth(11);
+    const medium = offCentreAtIdealDepth(16);
+    const wide = offCentreAtIdealDepth(25);
+
+    assert.ok(narrow > medium, `narrow ${narrow} should beat medium ${medium} at the same offset`);
+    assert.ok(medium > wide, `medium ${medium} should beat wide ${wide} at the same offset`);
+    assert.ok(narrow - wide > 0.08, `expected a clear spread, got ${(narrow - wide).toFixed(3)}`);
   });
 
   test('a narrow hall keeps its edge seats respectable, a wide one does not', () => {
