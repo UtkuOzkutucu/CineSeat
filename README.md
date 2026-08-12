@@ -10,11 +10,13 @@ Uygulama üzerinden herhangi bir satın alma işlemi gerçekleştirilmez. Üyeli
 
 ## Kurulum
 
-1. [**Releases**](https://github.com/UtkuOzkutucu/CineSeat/releases) sayfasından `CineSeat-Setup-3.0.0.exe` dosyasını indirin.
+1. [**Releases**](https://github.com/UtkuOzkutucu/CineSeat/releases) sayfasından en güncel `CineSeat-Setup-*.exe` dosyasını indirin.
 2. Dosyayı çalıştırıp kurulumu tamamlayın.
 3. Kurulum tamamlandıktan sonra uygulamaya Başlat menüsünden veya masaüstü kısayolundan erişebilirsiniz.
 
 Uygulama, Windows 10 veya 11 (64-bit) işletim sistemlerinde çalışır. Ek bir yazılım kurmanıza gerek yoktur.
+
+**Bunu yalnızca bir kez yapmanız gerekir.** Sonraki güncellemeler otomatiktir: uygulama her açılışta yeni sürüm olup olmadığını kontrol eder, varsa size sorar ve onay verirseniz indirip kendiliğinden kurar, ardından uygulamayı yeniden açar. Kurulum sihirbazı çıkmaz, indirilenler klasörünüze dosya birikmez.
 
 ### "Windows bilgisayarınızı korudu" Uyarısı
 
@@ -136,6 +138,30 @@ npm start
 ```
 
 Projeyi derlemek veya çalıştırmak için Node.js 18 veya üzeri bir sürüm gereklidir. Projede derleme (native build) gerektiren ek bir kütüphane, harici bir veritabanı sunucusu ya da Docker bağımlılığı bulunmamaktadır.
+
+### Yeni Sürüm Yayınlama
+
+`RELEASE.bat` dosyasına çift tıklayın. Bu betiğin sorduğu tek şey sürümün türüdür:
+
+| Ne yaptınız | Seçim | 1.0.2 şuna döner |
+|---|---|---|
+| Hata düzeltmesi | Düzeltme | `1.0.3` |
+| Yeni özellik | Yeni özellik | `1.1.0` |
+| Büyük değişiklik | Büyük sürüm | `2.0.0` |
+
+Betik sürüm numarasını yazar ve kurulum dosyasını derler. Ardından GitHub'da
+`v<sürüm>` etiketiyle yeni bir release açıp **yalnızca** üretilen
+`CineSeat-Setup-<sürüm>.exe` dosyasını yükleyin.
+
+Bilinmesi gereken iki kural:
+
+- **Sürüm numarası kod değişiklikleriyle değişmez.** `package.json` içindeki
+  numara "yayınlanmış olan"ı gösterir; çalışma kopyanızda kaç değişiklik olursa
+  olsun yerinde kalır. Numarayı yalnızca `RELEASE.bat` hareket ettirir. Yani üç
+  değişiklik yapıp tek release çıkarırsanız numara bir kez artar.
+- **Etiket ile dosyadaki numara aynı olmalıdır.** Uygulama güncellemeyi release
+  etiketine bakarak buluyor; etiket derlenen sürümden farklıysa ya olmayan bir
+  güncellemeyi tekrar tekrar teklif eder ya da hiç teklif etmez.
 
 ### Proje Yapısı
 

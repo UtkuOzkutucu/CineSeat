@@ -1074,6 +1074,80 @@ select:focus-visible {
   font-size: 0.9rem;
 }
 
+/* ─── Hover preview ────────────────────────────────────────────────────────── */
+
+/*
+ * A miniature of the hall, positioned against the viewport next to the hovered
+ * chip. pointer-events: none so it can never swallow the click it is previewing
+ * — the panel often overlaps the chip below the one you are pointing at.
+ */
+.seat-preview {
+  position: fixed;
+  z-index: 50;
+  pointer-events: none;
+  background: var(--bg-2);
+  border: 1px solid var(--line);
+  border-radius: var(--r-sm);
+  padding: 8px 10px;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+  --mini: 5px;
+}
+.mini-screen {
+  text-align: center;
+  font-size: 0.5rem;
+  letter-spacing: 0.24em;
+  color: var(--ink-dim);
+  padding-bottom: 3px;
+  margin-bottom: 5px;
+  border-bottom: 1px solid var(--line);
+  border-radius: 50% 50% 0 0;
+}
+.mini-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+.mini-row {
+  display: flex;
+  gap: 1px;
+  justify-content: center;
+}
+.mini-row.is-spacer {
+  height: calc(var(--mini) * 0.6);
+}
+.mini {
+  width: var(--mini);
+  height: var(--mini);
+  border-radius: 1px;
+  flex: none;
+}
+.mini.free {
+  background: var(--seat-free);
+}
+.mini.taken {
+  background: var(--seat-taken);
+}
+.mini.blocked {
+  background: var(--seat-blocked);
+}
+.mini.handicapped {
+  background: var(--seat-handicapped);
+}
+.mini.rec {
+  background: var(--seat-rec);
+  box-shadow: 0 0 0 1px rgba(232, 182, 76, 0.6);
+}
+.mini.gap {
+  background: transparent;
+}
+.mini-foot {
+  margin-top: 6px;
+  font-size: 0.65rem;
+  color: var(--ink-dim);
+  text-align: center;
+  white-space: nowrap;
+}
+
 .toast {
   position: fixed;
   left: 50%;

@@ -90,6 +90,46 @@ function safeScore(seatMap, ticketCount) {
 }
 
 /**
+ * The hall as one character per grid cell, for the hover preview.
+ *
+ * The scan already holds the full grid at this point and then throws it away,
+ * so a preview costs nothing to produce and nothing extra to fetch — which
+ * matters, because hovering must never trigger a seat request: each one is
+ * three upstream calls and a transient cart.
+ *
+ * Rows are joined with "|" and spacer rows appear as empty segments, so the
+ * aisles survive. Measured on real halls this is 84–338 bytes, ~600 at the
+ * 15x39 worst case.
+ *
+ * Deliberately encoded in source order (rows back-first, columns as they
+ * arrive). The screen-at-top rotation belongs to the renderer, so exactly one
+ * place knows the display convention and the preview cannot drift out of step
+ * with the full map.
+ */
+export function encodePreview(seatMap, suggestions) {
+  const picked = new Set();
+  for (const s of suggestions ?? []) {
+    for (const seat of s.seats) picked.add(`${seat.rowLetter}-${seat.seatNumber}`);
+  }
+
+  return seatMap.rows
+    .map((row) =>
+      row.isSpacer
+        ? ''
+        : row.cells
+            .map((c) => {
+              if (!c) return '.'; // gap or aisle
+              if (picked.has(`${c.rowLetter}-${c.seatNumber}`)) return '*';
+              if (c.state === 'occupied') return '#';
+              if (c.state === 'handicapped') return 'h';
+              return c.selectable ? 'o' : 'x'; // free, or free but wrong category
+            })
+            .join(''),
+    )
+    .join('|');
+}
+
+/**
  * Score every showtime given.
  *
  * There is deliberately no small cap: scanning all showtimes of one film at one
@@ -137,6 +177,8 @@ export async function scanShowtimes(showtimes, ticketCount, onProgress, signal) 
         suggestions: seatMap.suggestions,
         ticketTypes: seatMap.ticketTypes,
         fromCache: seatMap.fromCache,
+        // Lets the UI show the hall on hover without another request.
+        preview: encodePreview(seatMap, seatMap.suggestions),
         error: null,
       };
       report(entry);

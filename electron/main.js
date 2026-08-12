@@ -5,9 +5,10 @@
  * at it. Closing the window shuts the server down and exits.
  */
 
-import { app, BrowserWindow, shell, dialog } from 'electron';
+import { app, BrowserWindow, shell, dialog, ipcMain } from 'electron';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
+import { checkForUpdates, updateStatus } from './updater.js';
 
 const __dir = dirname(fileURLToPath(import.meta.url));
 
@@ -64,6 +65,12 @@ async function createWindow() {
     const { startServer } = await import('../src/index.js');
     serverHandle = await startServer({ port: 0 });
     await mainWindow.loadURL(`http://localhost:${serverHandle.port}`);
+
+    // After the window is up, never before: a slow or unreachable GitHub must
+    // not be able to delay the app starting.
+    checkForUpdates(mainWindow).catch((err) =>
+      console.warn(`[updater] ${err.message}`),
+    );
   } catch (err) {
     dialog.showErrorBox('Başlatılamadı', err.stack ?? String(err));
     app.quit();
@@ -99,6 +106,10 @@ if (!app.requestSingleInstanceLock()) {
     if (mainWindow.isMinimized()) mainWindow.restore();
     mainWindow.focus();
   });
+
+  // Read-only: the Durum tab reports what the updater is doing. It cannot
+  // trigger or alter it.
+  ipcMain.handle('update-status', () => updateStatus());
 
   app.whenReady().then(createWindow);
 

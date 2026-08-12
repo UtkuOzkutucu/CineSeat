@@ -367,10 +367,92 @@ function renderSessions() {
     )
     .join('');
 
-  box.querySelectorAll('.time-chip').forEach((chip) =>
-    chip.addEventListener('click', () => onShowtimeClick(chip.dataset.session)),
-  );
+  box.querySelectorAll('.time-chip').forEach((chip) => {
+    chip.addEventListener('click', () => onShowtimeClick(chip.dataset.session));
+    chip.addEventListener('mouseenter', () => queuePreview(chip));
+    chip.addEventListener('mouseleave', hidePreview);
+    // Chips are focusable, and hover is unreachable from the keyboard.
+    chip.addEventListener('focus', () => queuePreview(chip));
+    chip.addEventListener('blur', hidePreview);
+  });
 }
+
+// ─── Hover preview ────────────────────────────────────────────────────────────
+
+/**
+ * A miniature of the hall, so showtimes can be compared without opening each
+ * one. The score tells you how good the best pair is; this tells you *where* —
+ * a nearly empty hall and one with two seats against the wall can otherwise
+ * look similar.
+ *
+ * Renders strictly from what the scan already delivered. Hovering must never
+ * fetch: a seat map is three upstream calls and a transient cart, so sweeping
+ * across twenty chips would create twenty carts.
+ */
+let previewTimer = null;
+
+function queuePreview(chip) {
+  clearTimeout(previewTimer);
+  const scan = state.scanned.get(chip.dataset.session);
+  if (!scan?.preview) return; // not scanned, failed, or nothing on sale
+  // Small delay so sweeping the mouse across the list doesn't strobe.
+  previewTimer = setTimeout(() => showPreview(chip, scan), 150);
+}
+
+function hidePreview() {
+  clearTimeout(previewTimer);
+  el('seat-preview').hidden = true;
+}
+
+function showPreview(chip, scan) {
+  const strips = toDisplayStrips(scan.preview.split('|'));
+  const width = Math.max(...strips.map((s) => s.length));
+  const cell = width > 30 ? 4 : 5;
+
+  const panel = el('seat-preview');
+  panel.style.setProperty('--mini', `${cell}px`);
+  panel.innerHTML = `
+    <div class="mini-screen">PERDE</div>
+    <div class="mini-grid">${strips
+      .map((s) =>
+        s === ''
+          ? `<div class="mini-row is-spacer"></div>`
+          : `<div class="mini-row">${[...s]
+              .map((ch) => `<i class="mini ${MINI_CLASS[ch] ?? 'gap'}"></i>`)
+              .join('')}</div>`,
+      )
+      .join('')}</div>
+    <div class="mini-foot">${scan.available}/${scan.total} boş${
+      scan.bestLabel ? ` · ${esc(scan.bestLabel)}` : ''
+    }</div>`;
+
+  panel.hidden = false;
+
+  // Keep it on screen. Prefer below the chip, flip above when there's no room,
+  // then clamp on *both* sides of each axis — flipping alone isn't enough,
+  // because a panel taller than the space above lands at a negative offset and
+  // spills off the bottom instead.
+  const r = chip.getBoundingClientRect();
+  const p = panel.getBoundingClientRect();
+  const margin = 8;
+
+  const clamp = (v, max) => Math.min(Math.max(margin, v), Math.max(margin, max - margin));
+
+  let top = r.bottom + margin;
+  if (top + p.height > window.innerHeight - margin) top = r.top - p.height - margin;
+
+  panel.style.top = `${clamp(top, window.innerHeight - p.height)}px`;
+  panel.style.left = `${clamp(r.left, window.innerWidth - p.width)}px`;
+}
+
+const MINI_CLASS = {
+  '.': 'gap',
+  '#': 'taken',
+  o: 'free',
+  x: 'blocked',
+  h: 'handicapped',
+  '*': 'rec',
+};
 
 function showtimeChip(s) {
   const scan = state.scanned.get(s.sessionId);
@@ -489,6 +571,7 @@ function showWarning(text, onOk) {
 }
 
 async function openSeats(showtime, { ticketTypeCode = null } = {}) {
+  hidePreview(); // the miniature would otherwise hang over the real thing
   el('seat-sheet').hidden = false;
   el('sheet-title').textContent = `${state.film?.title ?? ''} · ${showtime.time}`;
   el('sheet-sub').textContent = [
@@ -601,6 +684,28 @@ function renderSeats(data, showtime) {
   el('follow-btn').addEventListener('click', () => followShowtime(showtime));
 }
 
+/**
+ * Turn source order into display order: screen at top, seat 1 on the same side
+ * as the site.
+ *
+ * Both axes, not just the rows. The site returns rows back-first but draws the
+ * screen at the top, and reversing rows alone is a *reflection* — it flips
+ * handedness and turns the map into its own mirror image, which is how seat 1
+ * ended up on the wrong side. A truthful top-down view needs a 180° rotation,
+ * so the columns reverse too.
+ *
+ * Both the full map and the hover preview go through here, so the two can never
+ * disagree about which way round the hall is.
+ */
+function toDisplayRows(rows) {
+  return [...rows].reverse().map((row) => ({ ...row, cells: [...row.cells].reverse() }));
+}
+
+/** The same rotation for the preview, whose rows are strings of one char per cell. */
+function toDisplayStrips(strips) {
+  return [...strips].reverse().map((s) => [...s].reverse().join(''));
+}
+
 /** Halls run from 7×9 to 15×39, so cells are sized to the hall, not fixed. */
 function drawGrid(data, rank) {
   const grid = el('seat-grid');
@@ -608,11 +713,7 @@ function drawGrid(data, rank) {
   const size = Math.max(11, Math.min(24, Math.floor(avail / (data.maxRowWidth + 2)) - 3));
   grid.style.setProperty('--seat', `${size}px`);
 
-  // The site returns rows back-first (data-r=0 is the back row), but draws the
-  // screen at the top. Reversing here puts the front row directly under the
-  // screen so our map reads the same way round as theirs.
-  grid.innerHTML = [...data.rows]
-    .reverse()
+  grid.innerHTML = toDisplayRows(data.rows)
     .map((row) => {
       if (row.isSpacer) return `<div class="srow is-spacer"></div>`;
       const cells = row.cells
@@ -746,10 +847,40 @@ function openFollow(f) {
 
 // ─── Durum ────────────────────────────────────────────────────────────────────
 
+/** Only the desktop shell can update itself, so this is empty in a browser. */
+async function updateCard() {
+  if (!window.desktop?.updateStatus) return '';
+  let u;
+  try {
+    u = await window.desktop.updateStatus();
+  } catch {
+    return '';
+  }
+  const line =
+    {
+      disabled: 'Geliştirme modunda güncelleme kontrolü kapalı.',
+      checking: 'Yeni sürüm kontrol ediliyor…',
+      current: 'En güncel sürümü kullanıyorsun.',
+      available: `Yeni sürüm bulundu: ${u.version}`,
+      downloading: `İndiriliyor: ${u.version}`,
+      installing: `Kuruluyor: ${u.version}`,
+      postponed: `Yeni sürüm var (${u.version}) — uygulamayı yeniden açtığında tekrar sorulacak.`,
+      error: `Kontrol edilemedi: ${u.message ?? ''}`,
+    }[u.state] ?? 'Durum bilinmiyor.';
+
+  return `
+    <div class="card block">
+      <h3>Sürüm</h3>
+      <p class="${u.state === 'error' ? 'err' : 'ok'}">${esc(line)}</p>
+      <p class="muted small">Kurulu sürüm: ${esc(u.current)}</p>
+    </div>`;
+}
+
 async function loadStatus() {
   try {
     const s = await api('/api/status');
     el('status-panel').innerHTML = `
+      ${await updateCard()}
       <div class="card block">
         <h3>Bağlantı</h3>
         ${
@@ -977,6 +1108,9 @@ el('tech-btn').addEventListener('click', () => toggleCombo('tech-pop', 'tech-btn
 document.addEventListener('click', (e) => {
   if (!e.target.closest('.combo')) closeCombos();
 });
+// The panel is absolutely positioned against the viewport, so scrolling would
+// leave it stranded next to the wrong chip.
+el('session-list').addEventListener('scroll', hidePreview, { passive: true });
 document.addEventListener('keydown', (e) => {
   if (e.key !== 'Escape') return;
   closeCombos();

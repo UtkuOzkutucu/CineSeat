@@ -1,6 +1,7 @@
 {
   "name": "cineseat",
-  "version": "3.0.0",
+  "_versionNote": "Moves ONLY via `npm version` at release time (RELEASE.bat). Never edit it as part of a code change — the app compares this against the newest GitHub release tag, so a hand-edit breaks updating.",
+  "version": "1.1.0",
   "description": "CineSeat — Paribu Cineverse için salon/film/seans gezinmesi ve akıllı koltuk önerisi",
   "type": "module",
   "main": "electron/main.js",
