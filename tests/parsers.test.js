@@ -81,6 +81,20 @@ describe('film list (JSON)', () => {
       assert.ok(f.Title, 'Title');
     }
   });
+
+  test('the pre-sale flag is spelled the way the code reads it', () => {
+    // IsPreSaleS, plural. Reading the singular gave undefined on every film, so
+    // Boolean() made it false and the "Ön Satış" filter matched nothing —
+    // no error, just an empty tab. A renamed field must fail here instead.
+    const films = json('films.json');
+    for (const f of films) {
+      assert.ok(
+        Object.hasOwn(f, 'IsPreSales'),
+        `${f.Title}: expected IsPreSales; keys were ${Object.keys(f).join(', ')}`,
+      );
+      assert.equal(typeof f.IsPreSales, 'boolean', `${f.Title}: IsPreSales should be a boolean`);
+    }
+  });
 });
 
 describe('session dates', () => {

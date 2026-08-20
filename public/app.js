@@ -244,6 +244,13 @@ function renderFilms() {
           <h3>${esc(f.title)}</h3>
           ${f.originalTitle ? `<p class="muted italic">${esc(f.originalTitle)}</p>` : ''}
           ${f.isPreSale ? `<span class="pill">Ön Satış</span>` : ''}
+          ${
+            f.technologies?.length
+              ? `<div class="tech-row">${f.technologies
+                  .map((t) => `<span class="tech-badge">${esc(techLabel(t.slug) ?? t.label)}</span>`)
+                  .join('')}</div>`
+              : ''
+          }
         </div>
       </article>`,
     )

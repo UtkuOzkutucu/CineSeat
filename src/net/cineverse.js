@@ -130,7 +130,22 @@ export async function getFilms({ cinemaId = null } = {}) {
       runtimeMin: f.Duration ?? f.RunTime ?? null,
       genre: f.Genre ?? f.GenreName ?? null,
       firstSessionDate: f.FirstAvailableSessionDate ?? null,
-      isPreSale: Boolean(f.IsPreSale),
+      // Formats the film is released in, nationwide — the same shape the cinema
+      // list uses. Deliberately NOT a per-cinema answer: this list is identical
+      // whether or not CinemaIds was passed, so a film can claim Gold Class at a
+      // cinema that has none, and miss a hall it actually plays in. The accurate
+      // per-hall data is on the session groups. Treat this as "what to watch",
+      // not "where to sit".
+      technologies: (f.Technologies ?? [])
+        .map((t) => ({
+          slug: String(t?.Identifier ?? '').toLowerCase(),
+          label: t?.Title ?? null,
+        }))
+        .filter((t) => t.slug),
+      // IsPreSaleS, plural. The singular spelling reads as undefined on every
+      // film, so the filter silently matched nothing. IsVIPPreSales is a
+      // separate flag the UI does not use yet.
+      isPreSale: Boolean(f.IsPreSales),
     }));
   });
 }
